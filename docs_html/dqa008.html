@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>Step by step to create new Q4OS application</TITLE>
+	<FONT FACE="Arial, Liberation Sans, sans-serif">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><FONT SIZE=5><B>Step-by-step to create new Q4OS C++ Application</B></FONT></P>
+<P><BR><BR>
+</P>
+<P><FONT SIZE=4 STYLE="font-size: 16pt"><B>Contents</B></FONT></P>
+<P STYLE="margin-left: 0.3in; line-height: 150%"><A HREF="#l-introduction">1.
+Introduction</A><BR><A HREF="#l-rundevide">2. Run development IDE</A><BR><A HREF="#createnewproj">3.
+Create new C++ project</A><BR><A HREF="#s-adddialog">4. Add your own
+dialog to the project</A><BR><A HREF="#writecode">5. Design new
+dialogs, write C++ code</A><BR><A HREF="#installer">6. Let create
+application installer</A><BR><BR><BR>
+</P>
+<HR>
+<P><A NAME="l-introduction"></A><FONT SIZE=4><B>1. Introduction</B></FONT></P>
+<P>This document describes in an easy manner, how to create new,
+shiny, simple, C++ application, step-by-step. Preferred way to write
+Q4OS applications is to use QT libraries, your code will not be Q4OS
+specific, but broadly multiplatform. Please read related document
+<A HREF="dqa002.html">Q4OS Application install howto, general
+recommendations</A>.</P>
+<P><BR><BR>
+</P>
+<HR>
+<P><A NAME="l-rundevide"></A><FONT SIZE=4><B>2. Run development IDE</B></FONT></P>
+<P STYLE="font-weight: normal">At first, you have to install Q4OS
+Development Pack and start development IDE.</P>
+<UL>
+	<LI><P>Download and save "Q4OS Development Pack" installer from
+	<A HREF="developer.html">Developer</A> section of the Q4OS website.</P>
+	<LI><P>Navigate file manager to downloaded file "setup_q4os-devpack_*.esh"
+        and doubleclick it to launch setup. Follow
+	installer instructions to install development pack.</P>
+	<LI><P>Start main development IDE after installation - doubleclick
+	"KDevelop Q4OS" icon on your desktop.</P>
+</UL>
+<P><BR><BR>
+</P>
+<HR>
+<P><A NAME="createnewproj"></A><FONT SIZE=4><B>3. Create new C++,
+Q4OS project</B></FONT></P>
+<UL>
+	<LI><P>From top toolbar choose second button "Generate a new
+	project from a template". New project wizard appears.</P>
+	<LI><P>Expand the tree, select "C++ > Q4OS > 1. New
+	Project (Q4OS/TDE)" and fill field "Application name"
+	as "Project1".</P>
+	<LI><P>Click "Next" for all wizard questions, new
+	project will be created.</P>
+	<LI><P>Press "F8" key and confirm "Run qmake"
+	to build this new project.</P>
+</UL>
+<P><BR><BR>
+</P>
+<HR>
+<P><A NAME="adddialog"></A><A NAME="s-adddialog"></A><FONT SIZE=4><B>4.
+Add your own dialog to the project</B></FONT></P>
+<P>This chapter describes procedure to create new dialog the best
+way, using subclassing wizard. This procedure is related to the new
+classes, forms and source code files.</P>
+<UL>
+	<LI><P>Click "TQMake Manager" toolbar on the right side,
+	TQMake Manager panel will open.</P>
+	<LI><P>Click to "FORMS" with right mouse button and
+	choose "Create new file..." from context menu.</P>
+	<LI><P>Set "ui_form2" to "File name" field and
+	select "TQT Dialog (.ui)" from drop-down list. It's important to keep 'ui_' prefix for form names
+        to avoid conflicts during building. Confirm "OK",
+	new "ui_form2.ui" file will be opened in TQT Designer.</P>
+	<LI><P>Modify new form to suite your wishes, save the form
+	and close designer.</P>
+	<LI><P>Right mouse button click to "ui_form2.ui" on TQMake
+	Manager panel, choose "Subclassing Wizard..." from
+	context menu.</P>
+	<LI><P>Fill new class name as "Form2", let file name
+	"form2" and other boxes unmodified. Click "Create"
+	to create source and header files of the form.</P>
+	<LI><P>Press "F8" to build the project again. Simple
+	two-form Q4OS Application is now created.</P>
+</UL>
+<P><BR><BR>
+</P>
+<HR>
+<P><A NAME="writecode"></A><FONT SIZE=4><B>5. Design new dialogs,
+write C++ code</B></FONT></P>
+<P>Now its time to write C++ code and do some programming, you will
+use objects, classes, signals, slots, events, actions, etc.. QT
+programming is not part of this document.</A>.</P>
+<UL>
+	<LI><P>optional: Connect "form2" to some action, for
+	example button click, write C++ code.</P>
+</UL>
+<P><BR><BR>
+</P>
+<HR>
+<P><A NAME="installer"></A><FONT SIZE=4><B>6. Let create application
+installer</B></FONT></P>
+<P>You need to be member of "sudo" group to process
+installer creation, as the installer needs root permissions
+definitely. "Installer Builder" tool will create both
+"*.deb" file for manual installation with "dpkg"
+command and "setup_*.esh" fully automated, convenient
+installer. You can choose which one to use.</P>
+<P>"Installer Builder" is a part of Q4OS Development
+Pack, if you are planning to build your own custom Application installer,
+feel free to copy and use it as a skeleton or self-explainable
+example.</P>
+<UL>
+	<LI><P>optional: If you want to modify installer settings edit
+	configuration file "installer.cfg" in project directory,
+	else let this file untouched with default values.</P>
+	<LI><P>Click main menu "Tools -> Installer Builder"
+	to start creating setup file.</P>
+	<LI><P>Self extracting, user comfortable application installer will
+	be generated automatically. Answer "Yes"
+	to "Open installer location ?" question, when process will finish.</P>
+	<LI><P>You can now proceed test installation of your new, shiny,
+	simple, C++, Q4OS application. Doubleclick "setup_*.esh"
+	file to run it and keep instructions on the screen to install
+	"Project1". Start menu entry and desktop icon of
+	"Project1" is now created.</P>
+	<LI><P>Upload and publish this setup file somewhere on the Internet,
+	Q4OS users will be happy for easy setup of your application.</P>
+</UL>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

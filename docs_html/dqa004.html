@@ -1,0 +1,132 @@
+<html>
+<head>
+ <title>Set up a Q4OS remote Desktop server</title>
+ <font face="Arial, Liberation Sans, sans-serif">
+ <style>
+  h1 {
+   font-size: 17pt;
+  }
+  h2 {
+   font-size: 14pt;
+  }
+  h3 {
+   font-size: 12pt;
+  }
+  pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+  }
+  .tab1 {
+   position: relative;
+   left: 5px;
+   line-height: 135%;
+  }
+  .tab2 {
+   position: relative;
+   left: 1em;
+  }
+ </style>
+</head>
+
+<body>
+
+<p><font size="2" color="gray">Set up a Q4OS remote Desktop server, administrator manual, rev. 03/2017</font></p>
+<hr>
+<h1 align=center><a name="top">Set up a Q4OS remote Desktop server</a></h1>
+<p align=center>administrator manual</p>
+<span class="tab1">
+1. <a href="#intro">Introduction</a><br>
+2. <a href="#s2">Installing Application Server</a><br>
+3. <a href="#s3">Set up Application Server</a><br>
+4. <a href="#s4">Client side</a><br>
+</span><br>
+
+<br><h2><a name="intro">1.   Introduction</a></h2>
+<p>This paper describes how to build VDI, virtual desktop infrastructure, for business, small company, hospitals, schools, or another various ICT environments. Q4OS is designed to be optimal solution for cloud computing and virtualization due to its low hardware, low network bandwidth requirements. Q4OS Application Server uses NX protocol, which allows clients secure graphical access to a remote desktop over a low speed Internet connections as well as fast broadband LAN networks, communication is ssh tunneled, fully encrypted.</p>
+<p><!--The best way to get an Application Server and Clients is to buy preinstalled, dedicated hardware in <a href="http://www.q4os.org/shop">Q4OS e-shop</a>. On the other side,-->You can turn almost any PC into the Server or Client, see the chapters below. Application Server could be virtualized, if a host computer has force enough. Depending on the Server's hardware it is possible to operate up to hundreds of clients for one server. Minimum HW requirements for the Server meets minimum requirements for Q4OS system and applications being used.</p>
+
+<br><h2><a name="s2">2.   Installing Application Server</a></h2>
+<h4>Local Server installation</h4>
+<p>Launch X2Go Server installation from the Q4OS Software Centre and follow setup instructions. Computer is ready to act as a Q4OS Application Server using NX protocol immediately after installation.</p>
+<h4>Installation on a VPS, or any other remote computer</h4>
+<p>If you have no local access to the Server machine available, you can install Q4OS Desktop using ssh connection. This is mainly useful for public VPS (virtual private server) hosting services or headless virtualized servers. Since many of providers offer a Debian based VPS service, it's possible to use it as a fast, multi-user, remote desktop. The performance is excellent, very close to a local computer, the only thing needed is a Debian based remote machine with ssh enabled.</p>
+<p>At first, login to your VPS, or another Debian based remote computer, over ssh and launch root shell:</p>
+<pre>$ ssh [remote-adminuser]@[remote-ip-address]
+$ su</pre>
+<p>or alternatively login directly as root:</p>
+<pre>$ ssh root@[remote-ip-address]</pre>
+<p>If there is no ordinary user account on the remote machine, you will have to create it using 'adduser' command. Download and run Q4OS setup script, the setup process will take a while. After installation close ssh connection:</p>
+<pre># wget q4os.org/downloads/q4os-setup.sh
+# sh q4os-setup.sh
+# exit
+$ exit</pre>
+<p>Login as the first ordinary user again:</p>
+<pre>$ ssh -l [remote-adminuser] -X -C [remote-ip-address]</pre>
+<p>You will see a few warnings and the ssh gui performance could be a bit weak, you can safely ignore it for now.</p>
+<p>Run the Q4OS desktop profiler and apply the 'Pure' profile:</p>
+<pre>$ swprofiler.exu</pre>
+<p>Run the Q4OS Software Centre and perform X2Go Server installation from it:</p>
+<pre>$ swcentre.exu</pre>
+<p>Once the job finishes, you can move on to setup the Server now, see the next chapter.</p>
+
+<br><h2><a name="s3">3.   Set up Application Server</a></h2>
+<p>It is possible to use the Server without additional configuration as it is ready to operate immediately after installation. You can optionally proceed some additional steps to adapt Server to your production environment, see bellow.</p>
+<h4>Set static IP address</h4>
+<p>We advice you to set a fixed IP address for this machine, to be able make permanent settings for all clients, there is '/etc/network/interfaces.d/.fixed-ip-eth0.example' file as a basic example. Simply edit the file to configure Server's IP address and rename it for example to 'fixed-ip-eth0'. You can perform the procedure in terminal:</p>
+<pre>$ cd /etc/network/interfaces.d
+$ sudo nano .fixed-ip-eth0.example
+$ sudo mv .fixed-ip-eth0.example fixed-ip-eth0</pre>
+<p>New IP configuration will be set after reboot.</p>
+<p>Alternatively clients may refer Server by a network name, using DHCP and dynamic DNS is a feasible way.</p>
+<h4>Remove Network Manager service</h4>
+<p>'Network Manager' service takes care about dynamic events like manual cable plug or wireless networks managing. You could safely remove it, if the Server uses network interfaces with fixed IP configuration only. Type in terminal:</p>
+<pre>$ sudo systemctl disable NetworkManager.service
+$ sudo systemctl stop NetworkManager.service</pre>
+<p>If you want to disable network manager applet icon from system tray:</p>
+<pre>$ sudo kwriteconfig --file "/etc/trinity/tdenetworkmanagerrc" --group "General" --key "Autostart" "false"
+$ sudo chmod a+r /etc/trinity/tdenetworkmanagerrc</pre>
+<h4>Disable GUI</h4>
+<p>You should disable Server's graphical user interface, if you don't need it. Type in terminal:</p>
+<pre>$ sudo systemctl mask tdm-trinity.service
+$ sudo systemctl mask tdm.service
+$ sudo reboot</pre>
+<p>After reboot you will have remote NX, ssh and local console login to the Server available.</p>
+<h4>Create users</h4>
+<p>Create users profiles standard way, using control panel or command line tool 'adduser', for help see 'man adduser'. Default users are allowed to establish remote NX desktop sessions, if you want to fine tune user's session settings see point bellow 'Advanced settings'.</p>
+<h4>Advanced settings</h4>
+<p>Load balancing, file sharing, printing and other extending functionality is available, if you want to fine tune, monitor or control Server operation see X2Go detailed documentation at <a href="http://wiki.x2go.org/doku.php/doc:newtox2go">x2go.org wiki</a>.  Please keep Debian commands all the way. Additional packages are directly installable as the repository is already included in the system. Use 'apt' command to manage packages, example to install broker agent package:<p>
+<pre>$ sudo apt install x2gobroker</pre>
+
+<br><h2><a name="s4">4.   Client side</a></h2>
+<p>Workstations can be provided by a hardware minimized thin-clients, low cost computers, desktop client software as well as tablets, phones. Desktop session is adjustable accepting connections from low speed modem bandwith up to LAN wideband networks.</p>
+<p>You can securely access Application Server anywhere in Internet or local network, you only need to know Server's IP address and login credentials.</p>
+<br><h3>4.1.   Hardware ThinClients</h3>
+<!--<h4>4.1.1.   Q4OS dedicated ThinClient</h4>
+<p>The best way to access remote Desktop Server is to buy cost effective, optimized ThinClients in <a href="http://www.q4os.org/shop">Q4OS e-shop</a>. Just buy, connect and use.</p>
+<h4>4.1.1.   Third party ThinClients</h4>-->
+<p>It is possible to access a Server using any ThinClient workstation equipped with NX/X2Go protocol. While we have no compatibility list, we don't guarantee proper functionality for any third-party model yet.</p>
+<br><h3>4.2.   Software Clients</h3>
+<p>The most applicable software client is X2Go client, available for all major operating systems. It is sufficient to fill Server IP, username and password to reach a Q4OS Application Server in a network, although there are plenty of other options to adjust a connection in addition.</p>
+<h4>4.2.1   X2Go Client for Q4OS</h4>
+<p>You can use any Q4OS computer as a client, please find convenient installer of the standard X2Go client in Q4OS Software Centre. First run wizard will help you to enter the basic Client settings.</p>
+<h4>4.2.2   X2Go Client for Windows, OS X, Linux</h4>
+<p>Find X2Go Client downloads and installation instructions <a href="http://www.x2go.org">here</a>. In order to establish a connection with Q4OS Server, you have to enter the needed basic configuration in 'Session preferences' dialog, the 'Session' tab:</p>
+<pre>Host: [ Server's IP address ]
+Login: [ User name ]
+Session type: 'Custom desktop'
+Command: 'start-q4os-x2go'</pre>
+<p>The 'start-q4os-x2go' command is essential. You are free to adjust additional advanced Client settings, for example network bandwidth limits and more, see documentation <a href="http://www.x2go.org">here</a>.</p>
+<h4>4.2.3   Client for tablets and phones</h4>
+<p>Android/IOS/Windows based clients are not available now, they are planned to be released.</p>
+
+<br><br><hr>
+<p><font size="2" color="gray">Set up a Q4OS remote Desktop server, administrator manual, rev. 03/2017</font></p>
+<br><br><br><br>
+
+</body>
+</html>

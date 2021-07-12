@@ -1,0 +1,307 @@
+<html>
+<head>
+ <title>Q4OS setup and using</title>
+ <font face="Arial, Liberation Sans, sans-serif">
+ <style>
+  h1 {
+   font-size: 17pt;
+  }
+  h2 {
+   font-size: 14pt;
+  }
+  h3 {
+   font-size: 12pt;
+  }
+  pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+  }
+  .tab1 {
+   position: relative;
+   left: 5px;
+   line-height: 135%;
+  }
+  .tab2 {
+   position: relative;
+   left: 1em;
+  }
+ </style>
+</head>
+
+<body>
+
+<p><font size="2" color="gray">Q4OS setup and using, user manual, rev. 11/2020</font></p>
+<hr>
+<h1 align=center><a name="top">Q4OS setup and using</a></h1>
+<p align=center>user manual</p>
+<span class="tab1">
+1. <a href="#intro">Introduction</a><br>
+2. <a href="#tstng">Testing</a><br>
+ <span class="tab2">
+ 2.1. <a href="#tstng.1">Live CD</a><br>
+ 2.2. <a href="#tstng.2">In Virtualbox</a><br>
+ </span>
+3. <a href="#inst">Installation</a><br>
+ <span class="tab2">
+ 3.1. <a href="#inst.1">Live media</a><br>
+ 3.2. <a href="#inst.2">Installation CD</a><br>
+ 3.3. <a href="#inst.3">Postinstall steps</a><br>
+ </span>
+4. <a href="#wifi">Wireless network setup</a><br>
+5. <a href="#printer">Print and Scan</a><br>
+ <span class="tab2">
+ 5.1. <a href="#printer.1">Hewlett-Packard printers and scanners</a><br>
+ 5.2. <a href="#printer.2">Other printers</a><br>
+ 5.3. <a href="#printer.3">Scanners</a><br>
+ </span>
+6. <a href="#pwmanag">Power management</a><br>
+7. <a href="#hwsens">Hardware sensors</a><br>
+8. <a href="#tchpad">Touchpad device</a><br>
+9. <a href="#codecpr">Proprietary multimedia codecs</a><br>
+10. <a href="#videopr">Proprietary video drivers</a><br>
+11. <a href="#users">Users and groups</a><br>
+ <span class="tab2">
+ 11.1. <a href="#users.1">Adding a regular user</a><br>
+ </span>
+12. <a href="#android">Android interconnection</a><br>
+13. <a href="#updates">Security updates, software management</a><br>
+ <span class="tab2">
+ 13.1. <a href="#updates.1">Update manager</a><br>
+ </span>
+14. <a href="#extrepo">External software repositories</a><br>
+15. <a href="#dskenv">Alternative desktop environments</a><br>
+<!-- <span class="tab2">
+ 15.1. <a href="#dskenv.1">KDE4 Plasma desktop</a><br>
+ 15.2. <a href="#dskenv.2">Other desktops</a><br>
+ </span>-->
+16. <a href="#inter">Adding more languages</a><br>
+ <span class="tab2">
+ 16.1. <a href="#inter.1">Add languages</a><br>
+ 16.2. <a href="#inter.2">User setup</a><br>
+ 16.3. <a href="#inter.3">Example</a><br>
+ </span>
+17. <a href="#tips">Miscellaneous tips</a><br>
+ <span class="tab2">
+ 17.1. <a href="#tips.1">Kickoff start menu</a><br>
+ 17.2. <a href="#tips.2">Single click icons</a><br>
+ 17.3. <a href="#tips.3">Desktop effects</a><br>
+ 17.4. <a href="#tips.4">Autologin</a><br>
+ 17.5. <a href="#tips.5">Screen scaling</a><br>
+ 17.6. <a href="#tips.6">Timezone selection</a><br>
+ 17.7. <a href="#tips.7">Root password</a><br>
+ </span>
+</span><br>
+
+<br><h2><a name="intro">1.   Introduction</a></h2>
+<p>This paper covers how to set up, configure and use Q4OS operating system. Q4OS is recommended to be used on production machines, as it has been built on top of the rock stable, secured and reliable Debian system tested by lot of people around the World. There is a huge stable software base sitting in the default repositories, you are free to use it and adjust the system to suit your needs.</p>
+
+<br><h2><a name="tstng">2.   Testing</a></h2>
+<h3><a name="tstng.1">2.1. Live CD</a></h3>
+<p>If you want to get a quick Q4OS experience or test it within a real hardware, you can safely boot a Q4OS live CD or USB. It will write nothing into your hard drive and will not affect your existing installation. It's possible to install Q4OS system directly from live media using the live installer.</p>
+<h3><a name="tstng.2">2.2. In Virtualbox</a></h3>
+<p>We recommend to install Q4OS inside <a href="http://www.virtualbox.org/">Virtualbox</a> for testing purposes. Enter operating system: Linux, version: Debian (32/64-bit), when you create new virtual machine.</p>
+<p>It's appropriate to setup "Virtualbox guest additions" within the guest system to achieve the best performance, there is a convenient auto-installer in the Q4OS 'Software centre' available. Installer contains optimized drivers and is preferred to install from original Oracle's or other sources.</p>
+
+<br><h2><a name="inst">3.   Installation</a></h2>
+<p>In order to make a fresh Q4OS installation, you have to acquire installation or live media first. Download the ISO image from Q4OS web site and create bootable medium. You can burn the ISO image onto a CD/DVD or make bootable USB. The other way is to order prepared media in <a href="https://www.q4os.org/shop/">Q4OS e-shop</a>.</p>
+<h3><a name="inst.1">3.1. Live media</a></h3>
+<!-- <p>A description is not completed yet, it will be available soon.</p> -->
+<p>There is an excellent <a href="https://dai-trying.com/tutorials/linux/q4os-scorpion-full-installation-guide/">external website</a> available, that describes Q4OS installation from the live media in detail. See how to create <a href="https://dai-trying.com/tutorials/how-to-create-a-live-cd-rom-using-windows/">live cd media</a> or <a href="https://dai-trying.com/tutorials/how-to-create-a-live-usb-using-windows/">live usb media</a>, preparing to install</a> and finally <a href="https://dai-trying.com/tutorials/install-q4os-from-live-desktop/">Q4OS installation</a>.</p>
+<h3><a name="inst.2">3.2. Installation CD</a></h3>
+<p>There are two basic options after booting from installation media, classic and fast installation. Classic install will ask you to setup partitioning, so you have option to keep current data, resize existing partitions, or repartitioning harddrive to your wishes. You will be able to free some harddrive space during installation and have Q4OS installed alongside other operating systems. The list of systems will be autodetected and offered on every boot.</p>
+<p>Fast install will recreate all partitioning on the disk drive automatically and format it with no question. It will erase all the hard drive data and install Q4OS onto the primary device. A predefined user account will be created, and the system will ask the user to set up a password immediately after the first login.</p>
+<p>Note, installation CD doesn't require any network connection, it will install the basic Q4OS system on computers even with no network card.</p>
+<h3><a name="inst.3">3.3. Postinstall steps</a></h3>
+<p>The first postinstall step a user should do is to run 'Desktop profiler' tool and apply the most applicable desktop profile according to his intention. There are a few basic profiles available at this time, however additional different profiles will continue to be created. After applying a profile, the user is free to install required applications, the best and recommended way is to use the 'Software Centre' from the system menu.</p>
+
+<br><h2><a name="wifi">4.   Wireless network setup</a></h2>
+<p>Q4OS fully supports wireless networking, includes fitted 'knetworkmanager' tool to manage wireless connections. If you are looking for more comfortable WiFi manager, we advise you to install more advanced 'Network Manager' from Software Centre.</p>
+
+<br><h2><a name="printer">5.   Print and Scan</a></h2>
+<h3><a name="printer.1">5.1. Hewlett-Packard printers and scanners</a></h3>
+<p>Install HP Linux printing and imaging system, satisfy dependencies and setup a printer in terminal:</p>
+<pre>$ sudo apt install hplip hplip-gui avahi-utils cups
+$ sudo apt install libcupsimage2-dev libdbus-1-dev libssl-dev libusb-1.0.0-dev python-dev
+$ sudo hp-setup</pre>
+<p>Some HP printers require a downloadable driver plug-in, the 'hp-setup' command will download and install the plug-in automatically.</p>
+<h3><a name="printer.2">5.2. Other printers</a></h3>
+<p>First list drivers and choose the proper one for your model:</p>
+<pre>$ apt-cache search printer-driver</pre>
+<p>Install a specific set of drivers, for example Samsung laser printers:</p>
+<pre>$ sudo apt install printer-driver-splix cups</pre>
+<p>or you can install all of available printer drivers:</p>
+<pre>$ sudo apt install foomatic-db printer-driver-all cups</pre>
+<p>Next add and configure printers, open Start menu -> Applications -> Settings -> Print system. You can find a valuable additional information at the <a href="https://wiki.debian.org/SystemPrinting">Debian wiki</a>.</p>
+<h3><a name="printer.3">5.3. Scanners</a></h3>
+<p>We recommend to use 'Kooka' application for scanning. Install required software and add any users who need access to the 'scanner' group:</p>
+<pre>$ sudo apt install libsane sane sane-utils xsane kooka-trinity
+$ sudo adduser your_user_name scanner</pre>
+<p>A user will need to log out and log back in to take effect of the new group. Check the scanner is now recognized:</p>
+<pre>$ scanimage -L
+$ sane-find-scanner</pre>
+<p>If you want to configure a network scanning, see <a href="https://wiki.debian.org/SaneOverNetwork">Sane over network</a>.</p>
+
+<br><h2><a name="pwmanag">6.   Power management</a></h2>
+<p>It is desirable to install power control application for laptops and mobile devices:</p>
+<pre>$ sudo apt update
+$ sudo apt install rfkill tdepowersave-trinity</pre>
+<p>Login again, nice power control application will be present in system tray. You will be able to control CPU frequency, view battery status, configure sleep and hibernate actions for different events like lid close, power button push and more.</p>
+
+<br><h2><a name="hwsens">7.   Hardware sensors</a></h2>
+<p>Most computers come with various sensors, which can be used to watch your hardware and prevent it from unexpected fault. This is where 'ksensors' application comes in. It allows you to access information from temperature, voltage, and fan speed sensors. So, let's install it:</p>
+<pre>$ sudo apt install ksensors-trinity</pre>
+<p>You will find 'ksensors' monitoring application in the Start menu or in the system tray. It provides convenient graphical interface to view various sensors information from system panel or 'ksensors' main window, and to set alarms, thresholds and actions on limits exceeding. You can add sensors to view with right mouse click on a free space of the 'ksensors' main window.</p>
+<p>Q4OS should recognize available sensors automatically out of the box, so you will not need to process further steps. If not so, you have to detect needed kernel modules using 'sensors-detect' terminal command:</p>
+<pre>$ sudo sensors-detect</pre>
+<p>You will be asked at the end of scan process, if you want what it finds to be added to '/etc/modules' file, so that it will be loaded with the other kernel modules. Answer 'yes' for doing that and then reboot.</p>
+
+<br><h2><a name="tchpad">8.   Touchpad device</a></h2>
+<p>Q4OS uses 'libinput' driver to control touchpad and related pointing devices by default. Check for the complete list of 'libinput' configuration options using terminal command:</p>
+<pre>$ man libinput</pre>
+All the options could be applied in the '/etc/X11/xorg.conf.d/60-libinput.conf' file. You can also make an older 'synaptics' driver take precedence over 'libinput' by installing 'xserver-xorg-input-synaptics' package:</p>
+<pre>$ sudo apt install xserver-xorg-input-synaptics</pre>
+<p>Use default 'synclient' command-line tool to configure Synaptics touchpads. Run the command to see current touchpad settings:</p>
+<pre>$ synclient</pre>
+<p>If you will see no settings printout, but 'driver not loaded' message, your hardware is probably not supported. In this case you cannot use 'synclient' tool.</p>
+<p>Next command will tell you all the options that are available for the synaptics driver:</p>
+<pre>$ man synaptics</pre>
+<p>If you want, for example, to disable touchpad's 'tap to click' simply run:</p>
+<pre>$ synclient TapButton1=0 TapButton2=0</pre>
+<p>For more detailed info please read <a href="https://wiki.debian.org/SynapticsTouchpad">Debian documentation</a>.</p>
+
+<br><h2><a name="codecpr">9.   Proprietary multimedia codecs</a></h2>
+<p>Many codecs are already available in default repositories. These include codecs for MP3, H264, and AAC encoding and decoding. If you want to install extra collection of professional quality codecs you can run easy to use installer from Q4OS Software Centre. Media players such as VLC and Mplayer make use of these codecs in order to provide support for playback of files encoded through these many different codecs.</p>
+
+<br><h2><a name="videopr">10.   Proprietary video drivers</a></h2>
+<p>Install proprietary drivers to improve video performance and get full 3D acceleration, see <a href="https://wiki.debian.org/GraphicsCard">graphics card Debian wiki</a> page for detailed instructions. If you have a NVIDIA graphics card, you can run installer from Q4OS Software Centre. It will probe the hardware for related available drivers and install them in a user friendly way.</p>
+
+<br><h2><a name="users">11.   Users and groups</a></h2>
+<h3><a name="users.1">11.1. Adding a regular user</a></h3>
+<p>Open "Users and groups" window:</p>
+<pre>Control Panel -> System Administration -> Users and groups</pre>
+<p>Click "Add" button, specify new username and fill user details. Assign users to specific system groups to specify user rights, for example to enable playing a music add user to "audio" group, to install printers to "lpadmin", to provide administrator permissions add user to "sudo" group. It is recommended to assign "cdrom, audio, video, plugdev, netdev, powerdev" groups for newly created users.</p>
+
+<br><h2><a name="android">12.   Android interconnection</a></h2>
+<p>Use 'gmtp' application, fast and well arranged graphical file manager, that connects most of phones and other Android devices to PC via usb cable. It offers fast file transfer between a computer and Android device. Install it in terminal:</p>
+<pre>$ sudo apt install gmtp</pre>
+<p>Attach your device via USB cable, set it as MTP device and run 'gmtp' file manager. You will be able to browse internal directory structure and copy, delete and manage files from your Android device.</p>
+
+<br><h2><a name="updates">13.   Security updates, software management</a></h2>
+<p>Q4OS uses "Apt" package management system and related tools to maintain system health and clean, there is automatic unattended upgrades mechanism to get security and software updates quietly. Apt keeps your computer up to date and safe.</p>
+<p>If you need to update your system immediately manually, issue commands in terminal:</p>
+<pre>$ sudo apt update
+$ sudo apt dist-upgrade</pre>
+<p>If you want to know how to install additional software, please follow 'Available Q4OS Applications' user manual, available from <a href="https://www.q4os.org/documents.html">Documents</a> section of the Q4OS website.</p>
+<h3><a name="updates.1">13.1. Update manager</a></h3>
+<p>Update Manager notify users about available security and software updates and let them to upgrade system on request. You can easily install Update Manager from the Q4OS Software Centre.</p>
+
+<br><h2><a name="extrepo">14.   External software repositories</a></h2>
+<p>This chapter is intended specifically for power users familiar to Debian package management system. The default Q4OS configuration offers the basic and dependable set of software repositories, if you want to add more external repositories, you are free to follow standard Debian procedures. In addition, Q4OS offers one more easy way to add a set of predefined repositories, see example below.</p>
+<p>Suppose we want to install the Opera web browser from external repository.<p>
+<p>List available predefined repositories:<p>
+<pre>$ sudo qrepoadd --gui</pre>
+<p>Select 'opera' repository from drop-down combobox and click 'Ok' button to add it to the system. Alternatively you can add the repository directly, using terminal command:<p>
+<pre>$ sudo qrepoadd opera</pre>
+<p>Install packages:<p>
+<pre>$ sudo apt update
+$ sudo apt install opera-stable</pre>
+<p>If you decide to uninstall Opera web browser and disable repository again, run in terminal:<p>
+<pre>$ sudo apt autoremove opera-stable
+$ sudo qreporm opera
+$ sudo apt update</pre>
+<p>Keep in mind, adding external third-party repositories is low level system action, and it could deeply influence package database integrity and dependencies. Fortunately Apt package management system contains strong tools for administrators to fix broken dependencies, so you are always able to revert into initial clean state.</p>
+
+<br><h2><a name="dskenv">15.   Alternative desktop environments</a></h2>
+<p>Other desktop environments integration into the Q4OS system is supported, they could be installed alongside the default Trinity desktop, for example KDE Plasma, LXQt, XFCE and others. You can add a desktop environment using the Desktop Profiler tool, run it in terminal:
+<pre>$ swprofiler.exu</pre>
+<p>Click on the right top corner button ">" to select desktop environment and install it together with a desktop profile. Reboot your computer, users will be able to choose, which desktop environment to log into. There is a 'Menu' button on the TDM login screen, user clicks on it and goes to 'Session Type'. He can select, which desktop environment he wants to log in.</p>
+<!--<h3><a name="dskenv.1">15.1. KDE Plasma desktop</a></h3>
+<p>The highly configurable modern KDE desktop is comprised of several Plasma themes, modified crystalsvg icon set, splash theme and desktop configuration. Single-command script for automatic easy installation is included.</p>
+<p>The preferred way to setup complete KDE4 desktop alongside standard Q4OS desktop is to run desktop installation chooser in terminal:</p>
+<pre>$ altdeski</pre>
+<p>Select 'KDE4' item, it will download, install, check and configure all the needed automatically. If you prefer KDE4 display manager over the default Q4OS/Trinity login screen, run after installation:</p>
+<pre>$ echo '/usr/bin/kdm' | sudo tee /etc/X11/default-display-manager</pre>
+<p>Uninstallation of the KDE4 desktop:</p>
+<pre>$ sudo apt autoremove q4os-kde4-desktop kde-plasma-desktop plasma-widget-networkmanagement kmix krusader</pre>
+<h3><a name="dskenv.2">15.2. Other desktops</a></h3>
+<p>There is desktop installation chooser in Q4OS, that launches auto-installation scripts, the scripts take care about proper installation and configuration. You can simply run the chooser in terminal in order to install more desktop environments alongside default Q4OS desktop. You will be able to select from LXQT, XFCE4 and LXDE desktops.</p>
+<pre>$ altdeski</pre>-->
+
+<br><h2><a name="inter">16.   Adding more languages</a></h2>
+<p>It's possible to add multiple languages into Q4OS and set different national environments for different users. Administrator installs separate localization packages and users will be able to switch between different languages. Follow next chapters to prepare system, install localization packages for applications and finaly set an user national environment.</p>
+<h3><a name="inter.1">16.1. Add languages</a></h3>
+<p>In order to prepare additional languages for regular users, administrator should run new language wizard from terminal. Repeat the command to get multiple languages:</p>
+<pre>$ addlanguage</pre>
+<p>If you have installed some applications having separate localization packages, install it as well. Follow Libre Office example:</p>
+<pre>$ apt-cache search libreoffice-l10n
+$ sudo apt install libreoffice-l10n-xx</pre>
+<p>Users will be able to individually set installed languages in their user profiles now, see the next chapter.</p>
+<p>Optionally, you can change global system locale and timezone:</p>
+<pre>$ sudo dpkg-reconfigure locales
+$ sudo dpkg-reconfigure tzdata</pre>
+<h3><a name="inter.2">16.2. User setup</a></h3>
+<p>Pickup and set a locale, please prefer UTF8 locales:</p>
+<pre>$ chqloc --list
+$ chqloc --setlocale xx_XX.utf8</pre>
+<p>Select new user language. Open "Country/Region & Language" dialog from Control panel:</p>
+<pre>Control Panel -> Regional & Accessibility -> Country/Region & Language</pre>
+<p>Choose your country clicking the country button. It will set up the user's language as well as various national conventions, for example date and time format, currency, etc.</p>
+<p>Select a keyboard layout:</p>
+<pre>Control Panel -> Regional & Accessibility -> Keyboard Layout</pre>
+<p>Login again, you will see your profile translated into the chosen language, all installed applications follow your locale settings too.</p>
+<h3><a name="inter.3">16.3. Example</a></h3>
+<p>Suppose fresh installation of Q4OS with Libre Office suite installed, we would like to set-up German language. Open terminal, run new language wizard to select German language:</p>
+<pre>$ addlanguage</pre>
+<p>Libre Office lang pack:</p>
+<pre>$ apt-cache search libreoffice-l10n
+$ sudo apt install libreoffice-l10n-de</pre>
+<p>Set user's German locale :</p>
+<pre>$ chqloc --list
+$ chqloc --setlocale de_DE.utf8</pre>
+<p>Open "Country/Region & Language" dialog:</p>
+<pre>Control Panel -> Regional & Accessibility -> Country/Region & Language</pre>
+<p>Click first button with country flag and choosse "Europe, Central -> Germany".</p>
+<p>Select German keyboard layout:</p>
+<pre>Control Panel -> Regional & Accessibility -> Keyboard Layout</pre>
+<p>Login again, you will see your profile translated into the chosen language, all installed applications follow your locale settings too.</p>
+
+<br><h2><a name="tips">17.   Miscellaneous tips</a></h2>
+<h3><a name="tips.1">17.1. Kickoff start menu</a></h3>
+<p>Well arranged, modern style start menu offers search bar, favorites tab, history and more. If you want to switch to Kickoff menu, right mouse click on system panel a context menu will pop up, then navigate:</p>
+<pre>Configure Panel -> Menus -> Start menu style -> Kickoff</pre>
+<p>You can restore default start menu the same way.</p>
+<h3><a name="tips.2">17.2. Single click icons</a></h3>
+<p>Icon activation by mouse doubleclicking is default in Q4OS. It's easy to set single click activation, hover effect and more in control panel:</p>
+<pre>Control Panel -> Peripherals -> Mouse -> General tab -> Single click to open files and folders</pre>
+<h3><a name="tips.3">17.3. Desktop effects</a></h3>
+<p>This way, you can turn desktop smoothing and beautifying effects on. Note, desktop effects will work flawlessly on modern hardware only, it's not recommended to use it with legacy hardware. Enable desktop effects in terminal:</p>
+<pre>$ ctrl-compmgr --enable</pre>
+<p>Disable desktop effects::</p>
+<pre>$ ctrl-compmgr --disable</pre>
+<h3><a name="tips.4">17.4. Autologin</a></h3>
+<p>It is possible to bypass login screen and login specified user automatically after system boot. There is a simple commandline tool to set or unset autologin into Q4OS desktop. Run in terminal to see all possible options of the command:</p>
+<pre>$ sudo ctrl-autologin --help</pre>
+<p>Enable autologin:</p>
+<pre>$ sudo ctrl-autologin --enable username</pre>
+<h3><a name="tips.5">17.5. Screen scaling</a></h3>
+<p>A fresh Q4OS installation should detect screen resolution automatically and possibly adapt the system resolution, however you can force system to use a user defined DPI, dots per inch, using a dedicated tool from Control panel:</p>
+<pre>Control Panel -> System Administration -> Screen scaling</pre>
+<p>Reboot and check the scaling. Increasing the DPI value will make fonts and icons bigger, a correct value for modern displays is ranging from 120 to 200 DPI depending on the screen type.</p>
+<h3><a name="tips.6">17.6. Timezone selection</a></h3>
+<p>Run command in terminal to select system timezone:</p>
+<pre>$ sudo dpkg-reconfigure tzdata</pre>
+<h3><a name="tips.7">17.7. Root password</a></h3>
+<p>Root superuser password is disabled by default in Q4OS. Use "sudo" to issue commands as root. You can also manually enable and change the root password to be able to use root account directly:
+<pre>$ sudo passwd</pre>
+
+<br><hr>
+<p><font size="2" color="gray">Q4OS setup and using, user manual, rev. 11/2020</font></p>
+<br><br><br><br>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+ <title>A clean install of Q4OS Desktop on an ARM device</title>
+ <font face="Arial, Liberation Sans, sans-serif">
+ <style>
+  h1 {
+   font-size: 17pt;
+  }
+  h2 {
+   font-size: 14pt;
+  }
+  h3 {
+   font-size: 12pt;
+  }
+  pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+  }
+  .tab1 {
+   position: relative;
+   left: 5px;
+   line-height: 135%;
+  }
+  .tab2 {
+   position: relative;
+   left: 1em;
+  }
+ </style>
+</head>
+
+<body>
+
+<p><font size="2" color="gray">A clean install of Q4OS Desktop on an ARM device, administrator manual, rev. 10/2018</font></p>
+<hr>
+<h1 align=center><a name="top">A clean install of Q4OS Desktop on an ARM device</a></h1>
+<p align=center>administrator manual</p>
+<span class="tab1">
+1. <a href="#intro">Introduction</a><br>
+2. <a href="#dinst">Armbian installation</a><br>
+3. <a href="#qinst">Q4OS setup</a><br>
+4. <a href="#posti">After install steps</a><br>
+</span><br>
+
+<br><h2><a name="intro">1.   Introduction</a></h2>
+<p>Q4OS on ARM architecture is a free operating system based on <a href="http://www.debian.org">Debian</a> ARM port. It runs on wide variety of hardware equipped with ARM processors, including Chromebooks, tablets, single board computers, embedded devices and more. Q4OS is now one of the few distributions offering the full desktop environment on the ARM architecture. If you want to install Q4OS on Raspberry Pi boards, please follow <a href="https://www.q4os.org/dqa010.html">Q4OS on Raspberry Pi</a> specific setup guide.</p>
+<p>Q4OS setup process consists of a couple different steps. First, you will have to install either Armbian or Debian operating system onto your device, see chapter 2. below. Then, you will download and run Q4OS installation script, see chapter 3., it will setup and fully configure fresh Q4OS desktop within your device.</p>
+
+<br><h2><a name="dinst">2.   Armbian installation</a></h2>
+<p>Perform, or start from existing, 64bit/arm64 or 32bit/armhf Armbian or Debian setup. Installation method depends on the specific target device, we recommend to follow official Armbian documentation and guides, you could <a href="https://www.armbian.com/">start here</a>. The fastest and recommended way is to perform the basic Armbian setup with SSH server, however you can select any Armbian packages to install including alternative desktops too. Once the Armbian installation has finished, launch Q4OS setup script, see the next chapter.</p>
+
+<br><h2><a name="qinst">3.   Q4OS setup</a></h2>
+<p>There is an interactive installation script available, it supports both Armbian as well as Debian operating systems. Simply download and run this script in terminal as 'root', see below, it will add Q4OS repositories and guide you throughout Q4OS setup process, please follow on-screen instructions.</p>
+<p>Login into the previously installed Armbian system via SSH, console or desktop and get ready to execute a few terminal commands. Download and run Q4OS setup script as 'root' superuser:</p>
+<pre>$ wget q4os.org/downloads/q4os-setup.sh
+$ su
+# sh q4os-setup.sh</pre>
+<p>Reboot and login into the fresh and clean Q4OS Desktop.</p>
+
+<br><h2><a name="posti">4.   After install steps</a></h2>
+<p></p>
+<p>Now it's the right time to install desired applications, the best and recommended way is to use Q4OS Software Centre, please read Q4OS <a href="https://www.q4os.org/documents.html">documentation</a>. Enjoy your new desktop and don't forget to involve yourself in the Q4OS <a href="https://www.q4os.org/forum/">community</a>.</p>
+
+<br><hr>
+<p><font size="2" color="gray">A clean install of Q4OS Desktop on an ARM device, administrator manual, rev. 10/2018</font></p>
+<br><br><br><br>
+
+</body>
+</html>

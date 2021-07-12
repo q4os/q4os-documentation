@@ -1,0 +1,90 @@
+<html>
+<head>
+ <title>Q4OS on Pine64</title>
+ <font face="Arial, Liberation Sans, sans-serif">
+ <style>
+  h1 {
+   font-size: 17pt;
+  }
+  h2 {
+   font-size: 14pt;
+  }
+  h3 {
+   font-size: 12pt;
+  }
+  pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+  }
+  .tab1 {
+   position: relative;
+   left: 5px;
+   line-height: 135%;
+  }
+  .tab2 {
+   position: relative;
+   left: 1em;
+  }
+ </style>
+</head>
+
+<body>
+
+<p><font size="2" color="gray">Q4OS on Pine64, administrator manual, rev. 03/2018</font></p>
+<hr>
+<h1 align=center><a name="top">Q4OS on Pine64</a></h1>
+<p align=center>administrator manual</p>
+<span class="tab1">
+1. <a href="#intro">Introduction</a><br>
+2a. <a href="#instl1">Installation using Pine64 official installer</a><br>
+2b. <a href="#instl2">Installation of downloaded image</a><br>
+3. <a href="#posti">After install steps</a><br>
+</span><br>
+
+<br><h2><a name="intro">1.   Introduction</a></h2>
+<p>Q4OS Pine64 port is a free operating system based on <a href="https://www.debian.org">Debian</a> distribution, optimized for the <a href="https://www.pine64.org">Pine64 family</a> hardware, the series of single-board 64bit ARM computers. Q4OS is now one of a few distributions offering the full desktop environment on the ARM architecture.</p>
+
+<br><h2><a name="instl1">2a.   Installation using Pine64 official installer</a></h2>
+<p>This is the recommended way to install Q4OS on a Pine64/Pinebook device. You will need to install Q4OS operating system on your own SD card, so you need a computer with a SD card writer to write the image. Download and run Pine64 official installer to select and write the Q4OS image to a SD card, please follow the official <a href="https://github.com/pine64dev/PINE64-Installer/blob/master/README.md">Pine64 installer documentation</a>.</p>
+
+<br><h2><a name="instl2">2b.   Installation of downloaded image</a></h2>
+<p>A more recent Q4OS image release may be available for download at the Q4OS website, so you can download and install the latest Q4OS image by following the next steps. The official Q4OS images are available for download from the <a href="https://www.q4os.org/downloads1.html">Downloads</a> section of the Q4OS website. After downloading the .zip file, unzip it to get the .img image file for writing to your SD card. With the image file you need to use an image writing tool to install it on your SD card. See the guide for your system:</p>
+<ul>
+ <li><a href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md">Windows</a></li>
+ <li><a href="https://www.raspberrypi.org/documentation/installation/installing-images/linux.md">Linux</a></li>
+ <li><a href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">Mac OS</a></li>
+</ul>
+
+<br><h2><a name="posti">3.   After install steps</a></h2>
+<p>Predefined login credentials are as follows:</p>
+<pre>username: adminq
+password: adminq</pre>
+<!--<p>Once booted, login with the provided credentials and execute script to resize the root partition in order to fully utilize the SD card:</p>
+<pre>$ sudo resize_rootfs.sh</pre>-->
+<!--<p>Next commands will ensure your bootloader and kernel is up to date:</p>
+<pre>$ sudo pine64_update_uboot.sh
+$ sudo pine64_update_kernel.sh</pre>-->
+<p>Once booted, get the fresh updates for Q4OS to be up to date and ready to use:</p>
+<pre>$ sudo apt update
+$ sudo apt dist-upgrade</pre>
+<p>Optionally increase fonts and icons size for HiDPI screens, it's specifically needed for Pinebook-1080p, see example below to set 144 dpi:</p>
+<pre>$ sudo sh /usr/share/apps/q4os_system/bin/dpi_set.sh 144
+$ sudo reboot</pre>
+<p>If you want to control brightness of Pinebook screen, follow steps below to add a control applet into the system panel:</p>
+<pre>> right click on the bottom system panel > Unlock panels >
+> right mouse click on the panel again > Add applet to panel >
+> search and select "LCD dimmer" applet > Add it to panel >
+> optionally lock panels again</pre>
+<p>That's all, enjoy your Pine64 and don't forget to involve yourself in the <a href="https://www.q4os.org/forum/">Q4OS forum</a> and Pine64 <a href="http://forum.pine64.org/">community</a>.</p>
+
+<br><hr>
+<p><font size="2" color="gray">Q4OS on Pine64, administrator manual, rev. 03/2018</font></p>
+<br><br><br><br>
+
+</body>
+</html>

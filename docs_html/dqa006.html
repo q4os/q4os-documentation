@@ -1,0 +1,109 @@
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> -->
+<HTML>
+
+<head>
+ <title>Q4OS for Windows setup</title>
+ <font face="Arial, Liberation Sans, sans-serif">
+ <style>
+  h1 {
+   font-size: 17pt;
+  }
+  h2 {
+   font-size: 14pt;
+  }
+  h3 {
+   font-size: 12pt;
+  }
+  pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+  }
+  .tab1 {
+   position: relative;
+   left: 5px;
+   line-height: 135%;
+  }
+  .tab2 {
+   position: relative;
+   left: 1em;
+  }
+ </style>
+</head>
+
+<!--<HEAD>
+ <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+ <TITLE>Available Q4OS applications</TITLE>
+ <FONT FACE="Arial, Liberation Sans, sans-serif">
+<style>
+ pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+ }
+</style>
+</HEAD>-->
+
+<!-- <BODY LANG="en-US" DIR="LTR"> -->
+
+<body>
+<p><font size="2" color="gray">Available Q4OS applications, rev. 06/2021</font></p>
+<hr>
+<P align=center><FONT SIZE=5><B>Available Q4OS applications</B></FONT></P>
+<p align=center>user manual</p>
+<P><BR>
+</P>
+<P><FONT SIZE=4><B>1. Introduction</B></FONT></P>
+<P>This document is intended for Q4OS users, describes howto install available software. Q4OS is built ontop of rock stable, secured and reliable Debian system tested by lot of people around the World. There is huge stable and free software base sitting in default repositories, you are welcome to install and enjoy all the applications.</P>
+<BR><HR>
+<P><FONT SIZE=4><B>2. Q4OS software resources</B></FONT></P>
+<P>The best and recommended way to easily setup a few featured applications is to use native Q4OS 'Software Centre' available in the Start menu. Just select an application from the list, click install button and follow installer instructions. <!-- An alternative method is to follow instructions from <a href="https://www.q4os.org/downloads1.html#q4apps">Software downloads</a> section of the Q4OS website. Download and save installer, doubleclick it from Q4OS filemanager and follow setup instructions.--></P>
+<BR><HR>
+<P><FONT SIZE=4><B>3. How to install software from repositories</B></FONT></P>
+<P>It is possible to install thousands of verified applications, tools and libraries from Debian and Q4OS repositories, see the next chapters.</P>
+<P><FONT SIZE=3><B>3.1 Software managers</B></FONT></P>
+<P>Using Synaptic, or Discover for Plasma desktop, package manager, you can search, install, uninstall and manage all software from repositories in well arranged graphical interface. You can install both Synaptic and Discover package managers from the Q4OS Software Centre.</P>
+<P><FONT SIZE=3><B>3.2 Commandline way</B></FONT></P>
+<P>Software from repositories could be installed with convenient graphical package managers, see the previous chapter, or manually using terminal commands, according to next instructions. You have to be member of administrative group 'sudo' for these operations, open terminal and type commands:</P>
+<pre>sudo apt update
+sudo apt install desired_application
+</pre>
+<P>Software will be installed as a system wide accessories for all users, shortcuts are created under matching group in 'Start menu -> Programs -> Accessories -> [Program_group] -> [Desired_application]'. You can then manually link icon to Desktop or somewhere to Start menu.</P>
+<P><FONT SIZE=3><B>3.3 Recent applications versions</B></FONT></P>
+<P>There is a <a href="https://backports.debian.org/">Debian Backports</a> repository available with recent versions of many useful applications prepared. First you need to add backports repository to system:
+<pre>$ sudo qrepoadd --gui</pre>
+and select "backports-buster" from the list to add. Backports stay unused and passive, until you explicitly ask to install specific software from. It is straightforward and clean action, with no system integrity impact. So, if you would like to use recent version of some application instead of the rock stable Debian version, you have to tell Q4OS to install desired software from backports. See an example for Libre Office suite:
+<pre>$ sudo apt -t buster-backports install libreoffice</pre></P>
+<P><FONT SIZE=3><B>3.4 Adding external repositories</B></FONT></P>
+<P>Please follow <a href="https://www.q4os.org/dqa007.html#extrepo">External software repositories</a> link.</P>
+<BR>
+<HR>
+<P><FONT SIZE=4><B>4. Additional applications</B></FONT></P>
+<P>Some additional applications that are not part of the software center are available for download and easy installation from the <a href="https://sourceforge.net/projects/q4os/files/experimental_apps/">SourceForge repository</a>. Installation is pretty easy. Just download the installer and run it from file manager. For more information see this <a href="https://www.q4os.org/forum/viewtopic.php?id=3624">forum post</a>.</P>
+<P> Please note, installers are considered as testing at the moment, however the installed applications should be rather stable. Most of installers include update repositories, so the applications keep up to date. Installers source code is available <a href=" https://github.com/q4os-installers">on GitHub</a>.</P>
+<BR><HR>
+<P><FONT SIZE=4><B>5. Windows applications</B></FONT></P>
+<P>Q4OS is ready to run Windows applications using <a href="https://www.winehq.org/">Wine</a> compatibility layer.
+Wine layer, a direct Windows API replacement, enables to install and run Windows applications without loss of performance,
+so it is possible to make a free 'Windows box' from your computer. If you want so, install a specifically tuned Wine
+package from Q4OS Software Centre.</P>
+<!-- If you run Windows application for the first time, you will be prompted to install Wine software -->
+<P>Keep in mind that Wine API is under heavy development and not fully complete yet, so some Windows applications may work great, but others will have breaking issues. At the moment we are working at Wine optimization and close integration into the Q4OS system.</P>
+<BR><HR>
+<P><FONT SIZE=4><B>6. Native Q4OS applications</B></FONT></P>
+<P>Native, optimized Q4OS software is the absolute primary aim of the Q4OS system. It will be available, if more developers start to develop applications for Q4OS to fulfil considerable Q4OS's potential. Such applications should be based on QT libraries as a native Q4OS API, thus can be really fast with very low hardware requirements, as well as integrated into the graphical user interface.</P>
+
+<br><hr>
+<p><font size="2" color="gray">Q4OS for Windows setup, user manual, rev. 06/2021</font></p>
+<br><br><br><br><br><br><br>
+
+</BODY>
+</HTML>

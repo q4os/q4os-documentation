@@ -1,0 +1,207 @@
+<html>
+<head>
+ <title>Q4OS Frequently asked questions</title>
+ <font face="Arial, Liberation Sans, sans-serif">
+ <style>
+  h1 {
+   font-size: 17pt;
+  }
+  h2 {
+   font-size: 14pt;
+  }
+  h3 {
+   font-size: 12pt;
+  }
+  pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+  }
+  .tab1 {
+   position: relative;
+   left: 5px;
+   line-height: 135%;
+  }
+  .tab2 {
+   position: relative;
+   left: 1em;
+  }
+ </style>
+</head>
+
+<body>
+
+<p><font size="2" color="gray">Q4OS Frequently asked questions, user manual, rev. 03/2018</font></p>
+<hr>
+<h1 align=center><a name="top">Q4OS Frequently asked questions</a></h1>
+<p align=center>user manual</p>
+<span class="tab1">
+1. <a href="#intro">Introduction</a><br>
+2. <a href="#install">Installation</a><br>
+ <span class="tab2">
+ 2.1. <a href="#install.1">How can I create bootable Q4OS installation USB disk ?</a><br>
+ 2.2. <a href="#install.2">Is there a way to dual boot Q4OS alongside Windows ?</a><br>
+ 2.3. <a href="#install.3">I have no sound after installation, what should I do ?</a><br>
+ </span>
+3. <a href="#system">System</a><br>
+ <span class="tab2">
+ 3.1. <a href="#system.1">There are broken packages dependencies in my system. How can I fix it ?</a><br>
+ 3.2. <a href="#system.2">Some letters being mis-typed. Some letters show up correctly, but a few ('L' shows up as '3', 'J' as '1') show up incorrectly.</a><br>
+ 3.3. <a href="#system.3">Fonts and icons are too small on my hiDPI screen, can I make them larger ?</a><br>
+ 3.4. <a href="#system.4">How can I display current CPU temperature in the system panel ?</a><br>
+ 3.5. <a href="#system.5">I am behind a proxy, package manager based aplications don't work.</a><br>
+ 3.6. <a href="#system.6">I want to use recent Linux kernel, is it possible ?</a><br>
+ </span>
+4. <a href="#desktop">Desktop</a><br>
+ <span class="tab2">
+ 4.1. <a href="#desktop.1">How to set up multiple virtual desktops in Q4OS ?</a><br>
+ 4.2. <a href="#desktop.2">I am not able to rename or edit some icons on my Desktop.</a><br>
+ 4.3. <a href="#desktop.3">How can I edit Start menu ?</a><br>
+ 4.4. <a href="#desktop.4">Can I customize view and shortcuts on the right panel of the default Q4OS 'Bourbon' Start menu ?</a><br>
+ 4.5. <a href="#desktop.5">I want Welcome screen entry to be shown in the Start menu.</a><br>
+ 4.6. <a href="#desktop.6">How can I autostart an application ?</a><br>
+ 4.7. <a href="#desktop.7">I have messed my desktop, how can I revert default colors, fonts, theme and other desktop settings ?</a><br>
+ 4.8. <a href="#desktop.8">How can I set single-click icons instead of double-click ?</a><br>
+ 4.9. <a href="#desktop.9">Tell me the most easy way to get a screenshot.</a><br>
+ 4.10. <a href="#desktop.10">Is it possible to change icon theme ?</a><br>
+ 4.11. <a href="#desktop.11">I have defined keyboard shortcuts in the Control Panel, but they don't work.</a><br>
+ 4.12. <a href="#desktop.12">I have noticed the 'Programs' entry have vanished from the Start menu, I did notice before that it had moved to above the separator line and now it has gone completely.</a><br>
+ 4.13. <a href="#desktop.13">Keyboard shortcut doesn't work to switch between non-latin keyboard layouts.</a><br>
+ </span>
+5. <a href="#applis">Applications</a><br>
+ <span class="tab2">
+<!-- 5.1. <a href="#applis.1">Can I install Google Earth ?</a><br>-->
+ 5.1. <a href="#applis.1">How can I setup 'Conky' transparency ?</a><br>
+ </span>
+</span><br>
+
+<br><h2><a name="intro">1.   Introduction</a></h2>
+<p>Notify us about any errors you find, suggestions are appreciated. When possible send us what you think would be a clearer solution. You can safely stick to <a href="http://www.trinitydesktop.org/faq/index.php">Trinity desktop environment FAQ</a>.</p>
+<br><h2><a name="install">2.   Installation</a></h2>
+<h3><a name="install.1">2.1. How can I create bootable Q4OS installation USB disk ?</a></h3>
+<p>The easiest way in Linux is to plug your usb in, do not mount it, and run in terminal:</p>
+<pre>$ sudo cp bootable.iso /dev/sdx</pre>
+<p>'sdx' is the target usb drive, for example 'sdb'<br>'bootable.iso' is bootable Q4OS installation CD image, you can download it from Q4OS website.</p>
+<p>Alternatively, you can use multiplatform 'UNetbootin' or 'Rufus' software to create bootable USB disks, see <a href="https://dai-trying.com/tutorials/how-to-create-a-live-usb-using-windows/">how to create a live media</a> external website.</p>
+<h3><a name="install.2">2.2. Is there a way to dual boot Q4OS alongside Windows ?</a></h3>
+<p>Sure, the preferred way is to proceed installation from 'Live' CD, as it gives you bootloader install option. If you let installer to install Grub bootloader, it will autodetect available operating systems including Windows and offer them all on every boot. If you want to keep Windows bootloader, don't forget to uncheck the related checkbox during installation.</p>
+<p>We strongly recommend to backup all your data before, please read <a href="https://www.q4os.org/dqa007.html#inst">installation instructions</a>.</p>
+<h3><a name="install.3">2.3. I have no sound after installation, what should I do ?</a></h3>
+<p>We recommend you to install the PulseAudio sound server first:
+<pre>$ sudo apt install pulseaudio pavucontrol-qt</pre>
+<p>Reboot your computer. Right-click to 'mixer' icon in system tray -> 'Select Master Channel...' -> set 'Current Mixer' to 'PulseAudio' in the top right listbox -> click 'Ok' to close the dialog. Run 'Volume Control' application from the Start menu and configure output mixer settings on the 'Output Devices' tab, check if output channels are not muted. The audio system should work now. If not so, continue following the steps below.</p>
+<p>Left-click to 'mixer' icon in the system tray, and click to 'Mixer' button to check and update audio mixer levels. <!--Focus primarily on 'Master', 'PCM', 'Front' and 'LFE' parameters. -->Make sure there is the 'PulseAudio' sound card selected in the top right corner of the 'kmix' mixer window. Then run command in terminal and check debug output:</p>
+<pre>$ artsplay /opt/trinity/share/sounds/KDE_Startup.wav</pre>
+<p>If there is still no sound, terminate temporarily Trinity sound server and try to play audio with independent alsa player:</p>
+<pre>$ artsshell terminate
+$ aplay /opt/trinity/share/sounds/KDE_Startup.wav</pre>
+<p>Again, check debug output. If your audio system still doesn't work, continue <a href="http://www.trinitydesktop.org/faq/sound.php">Troubleshooting sound problems</a> at Trinity FAQ.</p>
+
+<br><h2><a name="system">3.   System</a></h2>
+<h3><a name="system.1">3.1. There are broken packages dependencies in my system. How can I fix it ?</a></h3>
+<p>We have a handy tool to autofix broken dependencies in Q4OS, just run in terminal:</p>
+<pre>$ sudo sh /usr/share/apps/q4os_system/bin/qapt_fix.sh
+$ sudo apt update
+$ sudo apt dist-upgrade</pre>
+<p>Keep in mind, we strongly recommend to install software from reliable and Debian compatible sources only to prevent package system from being corrupted.</p>
+<h3><a name="system.2">3.2. Some letters being mis-typed. Some letters show up correctly, but a few ('L' shows up as '3', 'J' as '1') show up incorrectly.</a></h3>
+<p>A common glitch, that occurs on Netbooks with a small keyboard. Keyboard is blocked by NumLock, you could try to switch NumLock off. Launch Control Panel:</p>
+<pre>Control Panel -> Peripherals -> Keyboard -> NumLock on KDE startup -> set Off</pre>
+<p>Login again and try the keyboard.</p>
+<h3><a name="system.3">3.3. Fonts and icons are too small on my hiDPI screen, can I make them larger ?</a></h3>
+<p>Yes, Q4OS can scale the screen resolution, please read <a href="https://www.q4os.org/dqa007.html#tips.6">screen resolution</a> chapter.</p>
+<h3><a name="system.4">3.4. How can I display current CPU temperature in the system panel ?</a></h3>
+<p>Run 'ksensors' application from Start menu -> Programs -> Accessories -> System -> KSensors. If 'ksensors' is not installed yet, follow the <a href="https://www.q4os.org/dqa007.html#hwsens">hardware sensors</a> chapter to install it. Click with the right mouse button to 'ksensors' icon in system tray -> Configure -> select related HW sensors group -> select desired sensor from the list -> Dock tab -> check 'Visible' checkbox. You can optionally set colors, alarms, thresholds, actions on limits exceeding and other options. Click 'Apply' button and close the dialog.<!-- Finally add 'ksensors' into Start Menu -> Programs -> Autostart to be launched on login, see <a href="#desktop.3">Start menu editing</a>.--></p>
+<h3><a name="system.5">3.5. I am behind a proxy, package manager based aplications don't work.</a></h3>
+<p>You need to set system wide environment variables. Open the /etc/environment file with your favorite editor. Add the following lines, modifying appropriately, you must duplicate in both upper-case and lower-case because some programs only look for one or the other:<p>
+<pre>http_proxy="http://myproxy.server.com:8080/"
+https_proxy="http://myproxy.server.com:8080/"
+ftp_proxy="http://myproxy.server.com:8080/"
+no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+HTTP_PROXY="http://myproxy.server.com:8080/"
+HTTPS_PROXY="http://myproxy.server.com:8080/"
+FTP_PROXY="http://myproxy.server.com:8080/"
+NO_PROXY="localhost,127.0.0.1,localaddress,.localdomain.com"</pre>
+<p>APT package management system will not obey the environment variables when used normally with sudo. So separately configure them; create a file called 95proxies in /etc/apt/apt.conf.d/, and include the following:</p>
+<pre>Acquire::http::proxy "http://myproxy.server.com:8080/";
+Acquire::ftp::proxy "ftp://myproxy.server.com:8080/";
+Acquire::https::proxy "https://myproxy.server.com:8080/";</pre>
+<p>Finally, reboot to make sure the changes take effect.</p>
+<h3><a name="system.6">3.6. I want to use recent Linux kernel, is it possible ?</a></h3>
+<p>We recommend to use reliable and deeply proven default Q4OS/Debian kernel, there isn't too much reasons for ordinary users to use newer kernel. Keep in mind, the latest kernels are not so secure as the rock stable and exhaustively tested default Debian kernel, however it could bring improvements and newer device drivers and support. If you prefer for some reasons the latest linux kernel, run the auto-installation script in terminal to easily install it from backports repository:</p>
+<pre>$ qinst-kernel-bpo</pre>
+<p> The old good default kernel will not be uninstalled, so you can anytime choose and boot it from the grub boot menu, if you will fall into any issues.</p>
+
+<br><h2><a name="desktop">4.   Desktop</a></h2>
+<h3><a name="desktop.1">4.1. How to set up multiple virtual desktops in Q4OS ?</a></h3>
+<p>1) Launch the Control Panel and go to Desktop -> Multiple Desktops and select how many virtual desktops you wish to have.
+You can then set up a couple ways of switching desktops:<br>
+2a) Add a desktop switch applet to your taskbar by right-mouse clicking on the taskbar and select Add Applet to Panel.  If the taskbar is locked, un-lock it first, then choose the Add Applet to Panel option.<br>
+2b) In the pop-up window that appears, select the Desktop Pager / Switcher app, then click the Add To Panel button.<br>
+3a) Configure a keyboard shortcut by launching the Control Panel and go to Regional & Accessibility -> Keyboard Shotcuts.<br>
+3b) Under the Global Shortcuts tab, scroll down the list of commands and find Switch To Next Desktop under the Desktop Switching heading.<br>
+3c) Click the button next to the Custom option and assign the keyboard combination you wish to use to switch your desktops.<br>
+3d) Click the OK button to save.</p>
+<h3><a name="desktop.2">4.2. I am not able to rename or edit some icons on my Desktop.</a></h3>
+<p>There could be three logical types of icons present on your desktop. System and global icons owned by root and User icons, created and owned by user. Users are not allowed to directly edit or rename system and global icons, however they can remove them from the desktop if needed.</p>
+<p>The given set of System icons, 'My Computer', 'My Documents', 'My Network Places', 'Trash', 'Web Browser' and 'Printers', is not directly editable by a user, however users are allowed to remove them from their own desktop.</p>
+<p>Global icons are usually created by application installers, they are owned by root and shared by all users. Users can hide the global icons from the desktop, but they are not allowed to edit or rename such icon.</p>
+<p>User icons and shortcuts are created by a single user and users have full control over them. You can freely delete and rename it, as well as edit icon properties.</p>
+<p>If you would want to edit global or system icon, we recommend to remove it from the desktop and create matching user's icon using Drag&drop -> Copy from the Start menu. It will be owned by user and fully editable as usual, use Right mouse click -> Properties.</p>
+<h3><a name="desktop.3">4.3. How can I edit Start menu ?</a></h3>
+<p>Open the Start menu, click with the right mouse button on any item under the 'Programs' entry, select 'Edit menu', menueditor window appears. You will be able to create new custom submenus/folders structure and fill it with desired menu items. You can create new shortcuts using right mouse click, or drag&drop icons from the Start menu or Desktop into the menueditor window. Newly created items will appear in the Start menu after closing the menueditor window.</p>
+<p>In addition, you can switch Start menu items to be organized by Categories or by Applications:</p>
+<pre>$ sh /usr/share/apps/q4os_system/bin/kmenu_struct.sh --help</pre>
+<h3><a name="desktop.4">4.4. Can I customize view and shortcuts on the right panel of the default Q4OS 'Bourbon' Start menu ?</a></h3>
+<p>Yes, edit file '$HOME/.trinity/share/config/kickerrc' in your home directory. There are several configuration options beginning 'Bourbon' commented out by default. You need to uncomment 'BourbonSysViewCustomItems' line and specify '.desktop' links you wish to be displayed on the right menu panel, use comma ',' as a delimiter. It's also possible to hide default shortcuts with the 'BourbonShowSysViewFolders=false' and 'BourbonShowSysViewApps=false' options.</p>
+<h3><a name="desktop.5">4.5. I want Welcome screen entry to be shown in the Start menu.</a></h3>
+<p>Run command to update Welcome screen shortcut in terminal:</p>
+<pre>$ sudo kwriteconfig --file '/usr/share/applications/q4os-welcome-screen.desktop' --group 'Desktop Entry' --key 'NoDisplay' 'false'</pre>
+<p>Alternatively, you can edit '/usr/share/applications/q4os-welcome-screen.desktop' file manually. Welcome screen icon will appear under Start menu -> Programs -> Accessories -> System folder.</p>
+<h3><a name="desktop.6">4.6. How can I autostart an application ?</a></h3>
+<p>You need to add an application shortcut, i.e. the '.desktop' file, into the '$HOME/.trinity/Autostart' or '$HOME/.q4data/Programs/Startup' autostart folder. It will be launched immediately after the user login. Just drag any of application shortcuts from the start menu or from desktop and drop it into the autostart folder. It's also possible to place a shell script or executable into the autostart folder as well.</p>
+<h3><a name="desktop.7">4.7. I have messed my desktop, how can I revert default colors, fonts, theme and other desktop settings ?</a></h3>
+<p>Simply run in terminal:</p>
+<pre>$ sh /usr/share/apps/q4os_system/bin/default_desktop_settings.sh</pre>
+<h3><a name="desktop.8">4.8. How can I set single-click icons instead of double-click ?</a></h3>
+<p>Icon activation by mouse doubleclicking is default in Q4OS. It's easy to set single click activation, hover effect and more in Control Panel:</p>
+<pre>Control Panel -> Peripherals -> Mouse -> General tab -> Single click to open files and folders</pre>
+<h3><a name="desktop.9">4.9. Tell me the most easy way to get a screenshot.</a></h3>
+<p>You can do this without any other packages, simply press 'PrtScr' key and then right click on the desktop and select Paste clipboard contents, this will display a dialog where you can enter the filename and image type and the file will be saved to the desktop. You could also open konqueror to browse to preferred folder, again right click and select Paste clipboard contents and file will be saved to preferred location.</p>
+<p>In addition, there is a lightweight and powerful application 'ksnapshot-trinity', it's capable to grab full screen, region, a window or window part only. You can install it from terminal this way:</p>
+<pre>$ sudo apt install ksnapshot-trinity</pre>
+<h3><a name="desktop.10">4.10. Is it possible to change icon theme ?</a></h3>
+<p>Yes, you have to unlock advanced Control Panel options in terminal:</p>
+<pre>$ sudo kcmodules --unlock</pre>
+<p>Go to Control Panel -> Appearance & Themes -> Icons, and setup theme you prefer.</p>
+<h3><a name="desktop.11">4.11. I have defined keyboard shortcuts in the Control Panel, but they don't work.</a></h3>
+<p>You only need to enable khotkeys service to be ran on session login. Go to Control Panel:</p>
+<pre>Control Panel -> Regional & Accessibility -> Input Actions -> General Settings tab -> uncheck Disable KHotKeys checkbox</pre>
+<h3><a name="desktop.12">4.12. I have noticed the 'Programs' entry have vanished from the main menu, I did notice before that it had moved to above the separator line and now it has gone completely.</a></h3>
+<p>It happens rarely on some specifically configured systems. The workaround, that should fix it, is to re-switch from classic - kicker - classic menu. You could report it as a new bug in our <a href="https://sourceforge.net/p/q4os/tickets">Bug tracker</a>, and add some description if you will find any connections.</p>
+<h3><a name="desktop.13">4.13. Keyboard shortcut doesn't work to switch between non-latin keyboard layouts.</a></h3>
+<p>Keyboard switching shortcut defaults to 'Alt+Space' or 'Ctrl+Alt+K'. It works flawlessly, if you have installed latin keyboard layouts only. To be able to switch non-latin keyboard freely, you need to add 'latin layout' to each keyboard layout you use. Run Control Panel:</p>
+<pre>Control Panel -> Regional & Accessibility -> Keyboard layout -> select a non-latin keyboard layout -><br> -> check 'Include latin layout' checkbox</pre>
+
+<br><h2><a name="applis">5.   Applications</a></h2>
+<!--<h3><a name="applis.1">5.1. Can I install Google Earth ?</a></h3>
+<p>Yes, we have added Google Earth installer into the testing repository, please download installer from <a href="https://sourceforge.net/projects/q4os/files/apps_experimental/">Q4OS testing repository</a>.</p>-->
+<h3><a name="applis.1">5.1. How can I setup 'Conky' transparency ?</a></h3>
+<p>You have to have Q4OS/Trinity desktop effects enabled, it can be setup via Welcome screen or Control Panel. Edit the '/etc/conky/conky.conf' file and add lines:</p>
+<pre>own_window yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual
+own_window_argb_value 0</pre>
+<p>Comment out line:</p>
+<pre>#own_window_type desktop</pre>
+
+<br><hr>
+<p><font size="2" color="gray">Q4OS Frequently asked questions, user manual, rev. 03/2018</font></p>
+<br><br><br><br>
+
+</body>
+</html>
