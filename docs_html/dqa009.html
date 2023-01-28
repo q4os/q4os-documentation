@@ -35,8 +35,8 @@
 
 <body>
 
-<p><font size="2" color="gray">Easy way to create custom application installer, developer manual, rev. 04/2020</font></p>
-<hr>
+<p><font size="2" color="gray">Easy way to create custom application installer, developer manual, rev. 09/2021</font></p><hr>
+
 <h1 align=center><a name="top">Easy way to create custom application installer</a></h1>
 <p align=center>developer manual</p>
 <span class="tab1">
@@ -47,7 +47,8 @@
 
 <br><h2><a name="intro">1.   Introduction</a></h2>
 <p>This document describes, how to create Q4OS self-extracting convenient installer for your own applications, files and directory structure. This procedure will create both '*.deb' file for manual installation with 'dpkg' command, and '*.esh' fully automated, convenient installer. The installer will flawlessly install and deliver an application or set of files to Q4OS users.</p>
-<p>First of all, you have to install Q4OS Development Pack. Download development pack installer from <a HREF="developer.html">Developer</a> section of the Q4OS website and double-click downloaded file from file manager to launch setup. Follow installer instructions to install development pack.</p>
+<p>Before we can proceed to create the first simple application, you need to install Q4OS Development Pack from repositories:</p>
+<pre>$ sudo apt install q4os-devpack-base</pre>
 
 <br><h2><a name="crspa">2.   Create a simple application</a></h2>
 <p>We will create some custom files and directory structure first, it will represent an application. Run commands in terminal to create working directory and application files, you can use cut and 'shift-insert' paste into the terminal:</p>
@@ -60,18 +61,18 @@ $ chmod a+x my-app.sh</pre>
 
 <br><h2><a name="buiis">3.   Build installer</a></h2>
 <p>Copy the predefined configuration file for the installer. The configuration file is well documented and can be adjusted later to customize installer:</p>
-<pre>$ cd $HOME/my-appdir
-$ cp /program_files/q4os-devpack/appsetup/q4os_setup.cfg.sample installer.cfg</pre>
+<pre>$ cp /program_files/q4os-devpack/appsetup/q4os_setup.cfg.sample $HOME/my-appdir/installer.cfg</pre>
 <!--<p>Cut and paste contents of the 'installer.cfg' file:</p>
 <pre>#***q4os*setup*config*header*do*not*delete*it***#
 CHKINSTALL_COMMAND="cp my-app.sh /usr/bin/application.exu"</pre>-->
 <p>Finally generate installer:</p>
 <pre>$ export SHOWDEBDIALOG=1
+$ cd $HOME/my-appdir
 $ dash /program_files/q4os-devpack/bin/create_q4app_setup.sh installer.cfg</pre>
 <p>Comfortable Q4OS installer will be generated automatically, answer 'Yes' to 'Open installer location ?' question, when process finishes. You can now proceed testing installation of your application double-clicking 'setup_*.esh' file. Upload and publish this file somewhere on the Internet, Q4OS users will be happy for easy setup of your application.</p>
 
 <br><hr>
-<p><font size="2" color="gray">Easy way to create custom application installer, developer manual, rev. 04/2020</font></p>
+<p><font size="2" color="gray">Easy way to create custom application installer, developer manual, rev. 09/2021</font></p>
 <br><br><br><br>
 
 </body>

@@ -4,47 +4,75 @@
 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
 	<TITLE>Step by step to create new Q4OS application</TITLE>
 	<FONT FACE="Arial, Liberation Sans, sans-serif">
+ <style>
+  h1 {
+   font-size: 17pt;
+  }
+  h2 {
+   font-size: 14pt;
+  }
+  h3 {
+   font-size: 12pt;
+  }
+  pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+  }
+  .tab1 {
+   position: relative;
+   left: 5px;
+   line-height: 135%;
+  }
+  .tab2 {
+   position: relative;
+   left: 1em;
+  }
+ </style>
 </HEAD>
+
 <BODY LANG="en-US" DIR="LTR">
+
+<p><font size="2" color="gray">Step by step to create new Q4OS application, Trinity desktop, developer manual, rev. 10/2021</font></p><hr>
+
 <P><FONT SIZE=5><B>Step-by-step to create new Q4OS C++ Application</B></FONT></P>
 <P><BR><BR>
 </P>
+
 <P><FONT SIZE=4 STYLE="font-size: 16pt"><B>Contents</B></FONT></P>
-<P STYLE="margin-left: 0.3in; line-height: 150%"><A HREF="#l-introduction">1.
-Introduction</A><BR><A HREF="#l-rundevide">2. Run development IDE</A><BR><A HREF="#createnewproj">3.
-Create new C++ project</A><BR><A HREF="#s-adddialog">4. Add your own
-dialog to the project</A><BR><A HREF="#writecode">5. Design new
-dialogs, write C++ code</A><BR><A HREF="#installer">6. Let create
-application installer</A><BR><BR><BR>
+<P STYLE="margin-left: 0.3in; line-height: 150%">
+<A HREF="#l-introduction">1. Introduction</A><BR>
+<A HREF="#l-rundevide">2. Install development IDE</A><BR>
+<A HREF="#createnewproj">3. Create new C++ project</A><BR>
+<A HREF="#s-adddialog">4. Add your own dialog to the project</A><BR>
+<A HREF="#writecode">5. Design new dialogs, write C++ code</A><BR>
+<A HREF="#installer">6. Let create application installer</A><BR><BR><BR>
 </P>
 <HR>
-<P><A NAME="l-introduction"></A><FONT SIZE=4><B>1. Introduction</B></FONT></P>
-<P>This document describes in an easy manner, how to create new,
-shiny, simple, C++ application, step-by-step. Preferred way to write
-Q4OS applications is to use QT libraries, your code will not be Q4OS
+
+<p><a NAME="l-introduction"></a><font size=4><b>1. Introduction</b></font></p>
+<p>This document describes in an easy manner, how to create new,
+shiny, simple, C++ application, step-by-step under the Trinity desktop environment. Preferred way to write
+Q4OS applications is to use TQt libraries, your code will not be Q4OS
 specific, but broadly multiplatform. Please read related document
-<A HREF="dqa002.html">Q4OS Application install howto, general
-recommendations</A>.</P>
+<a href="dqa002.html">Q4OS Application install howto, general recommendations</a>.</p>
+<p><br><br>
+</p>
+<hr>
+
+<P><A NAME="l-rundevide"></A><FONT SIZE=4><B>2. Install development IDE</B></FONT></P>
+<P STYLE="font-weight: normal">At first, you need to install Q4OS Development Pack for the Trinity desktop environment in terminal:</P>
+<pre>$ sudo apt install q4os-devpack-trinity</pre>
+<P>Now you can start "TDevelop" C++ IDE from the Start menu.</P>
 <P><BR><BR>
 </P>
 <HR>
-<P><A NAME="l-rundevide"></A><FONT SIZE=4><B>2. Run development IDE</B></FONT></P>
-<P STYLE="font-weight: normal">At first, you have to install Q4OS
-Development Pack and start development IDE.</P>
-<UL>
-	<LI><P>Download and save "Q4OS Development Pack" installer from
-	<A HREF="developer.html">Developer</A> section of the Q4OS website.</P>
-	<LI><P>Navigate file manager to downloaded file "setup_q4os-devpack_*.esh"
-        and doubleclick it to launch setup. Follow
-	installer instructions to install development pack.</P>
-	<LI><P>Start main development IDE after installation - doubleclick
-	"KDevelop Q4OS" icon on your desktop.</P>
-</UL>
-<P><BR><BR>
-</P>
-<HR>
-<P><A NAME="createnewproj"></A><FONT SIZE=4><B>3. Create new C++,
-Q4OS project</B></FONT></P>
+
+<P><A NAME="createnewproj"></A><FONT SIZE=4><B>3. Create new C++ Q4OS project</B></FONT></P>
 <UL>
 	<LI><P>From top toolbar choose second button "Generate a new
 	project from a template". New project wizard appears.</P>
@@ -59,8 +87,8 @@ Q4OS project</B></FONT></P>
 <P><BR><BR>
 </P>
 <HR>
-<P><A NAME="adddialog"></A><A NAME="s-adddialog"></A><FONT SIZE=4><B>4.
-Add your own dialog to the project</B></FONT></P>
+
+<A NAME="s-adddialog"></A><FONT SIZE=4><B>4. Add your own dialog to the project</B></FONT></P>
 <P>This chapter describes procedure to create new dialog the best
 way, using subclassing wizard. This procedure is related to the new
 classes, forms and source code files.</P>
@@ -70,7 +98,7 @@ classes, forms and source code files.</P>
 	<LI><P>Click to "FORMS" with right mouse button and
 	choose "Create new file..." from context menu.</P>
 	<LI><P>Set "ui_form2" to "File name" field and
-	select "TQT Dialog (.ui)" from drop-down list. It's important to keep 'ui_' prefix for form names
+	select "TQT Dialog (.ui)" from drop-down list. It's important to keep "ui_" prefix for form names
         to avoid conflicts during building. Confirm "OK",
 	new "ui_form2.ui" file will be opened in TQT Designer.</P>
 	<LI><P>Modify new form to suite your wishes, save the form
@@ -87,8 +115,8 @@ classes, forms and source code files.</P>
 <P><BR><BR>
 </P>
 <HR>
-<P><A NAME="writecode"></A><FONT SIZE=4><B>5. Design new dialogs,
-write C++ code</B></FONT></P>
+
+<P><A NAME="writecode"></A><FONT SIZE=4><B>5. Design new dialogs, write C++ code</B></FONT></P>
 <P>Now its time to write C++ code and do some programming, you will
 use objects, classes, signals, slots, events, actions, etc.. QT
 programming is not part of this document.</A>.</P>
@@ -99,8 +127,8 @@ programming is not part of this document.</A>.</P>
 <P><BR><BR>
 </P>
 <HR>
-<P><A NAME="installer"></A><FONT SIZE=4><B>6. Let create application
-installer</B></FONT></P>
+
+<P><A NAME="installer"></A><FONT SIZE=4><B>6. Let create application installer</B></FONT></P>
 <P>You need to be member of "sudo" group to process
 installer creation, as the installer needs root permissions
 definitely. "Installer Builder" tool will create both
@@ -128,7 +156,10 @@ example.</P>
 	<LI><P>Upload and publish this setup file somewhere on the Internet,
 	Q4OS users will be happy for easy setup of your application.</P>
 </UL>
-<P><BR><BR>
-</P>
+
+<br><hr>
+<p><font size="2" color="gray">Step by step to create new Q4OS application, Trinity desktop, developer manual, rev. 10/2021</font></p>
+<br><br><br><br>
+
 </BODY>
 </HTML>

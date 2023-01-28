@@ -35,7 +35,7 @@
 
 <body>
 
-<p><font size="2" color="gray">Q4OS for Windows setup, user manual, rev. 05/2020</font></p>
+<p><font size="2" color="gray">Q4OS for Windows setup, user manual, rev. 10/2022</font></p>
 <hr>
 <h1 align=center><a name="top">Q4OS for Windows setup</a></h1>
 <p align=center>user manual</p>
@@ -48,7 +48,7 @@
 </span><br>
 
 <br><h2><a name="intro">1.   Introduction</a></h2>
-<p>The Windows installer allows you to install Q4OS alongside Windows in an easy way, you won't have to modify your existing Windows operating system, nor any of your software installed. Q4OS is installed inside Windows as any other application, no separate partitions, just a folder in the Windows filesystem. Once you install Q4OS, you'll be able to switch back and forth between Windows and Q4OS each time you restart your computer. This installer is compatible with Windows&nbsp;10, 8 or 7 versions and it's able to handle Secure boot, if available in the PC firmware.<!-- It will configure your PC as a dualboot system, so you will be allowed to choose whether to launch Windows or Q4OS upon a computer startup.--></p>
+<p>The Windows installer allows you to install Q4OS alongside Windows in an easy way, you won't have to modify your existing Windows operating system, nor any of your software installed. Q4OS is installed inside Windows as any other application, no separate partitions, just a folder in the Windows filesystem. Once you install Q4OS, you'll be able to switch back and forth between Windows and Q4OS each time you restart your computer. This installer is compatible with Windows&nbsp;11, 10, 8 or 7 versions and it's able to handle Secure boot, if available in the PC firmware.<!-- It will configure your PC as a dualboot system, so you will be allowed to choose whether to launch Windows or Q4OS upon a computer startup.--></p>
 <p>We can recommend some excellent external resources to learn the Q4OS for Windows setup, look at a <a href="https://www.youtube.com/watch?v=FAQohrvvC2U" title="Q4OS installer for Windows, a YouTube video.">video guide on YouTube</a> and a website that describes the setup in detail for everyone, see <a href="https://dai-trying.com/tutorials/install-q4os-from-windows-10-with-secure-boot/" title="Install Q4OS from Windows 10 with secure boot.">Install Q4OS from Windows 10 with secure boot</a>.</p>
 <p>If your Windows becomes lagging, it's the right time to try Q4OS out, a lightweight, snappy and easy to use operating system with variety of applications available in repositories. Q4OS is not intended to be a replacement, but the perfect complement to an existing Windows installation.</p>
 <!-- <p>Note: The installer is still in testing phase of the development, we don't recommend to use it in production environments.</p> -->
@@ -56,10 +56,12 @@
 
 <br><h2><a name="instl">2.   Installation</a></h2>
 <p>
-At first, you need to get setup executable, so download file "q4os-winsetup.zip" from downloads section of the Q4OS website. Unzip and launch it the usual way by double click from file manager.<br><br>
+At first, you need to get setup executable, so download file "q4os-winsetup.zip" from downloads section of the Q4OS website. Unzip and launch it the usual way by double click from Windows file explorer. Keep the file explorer window pointing the unzipped file throughout the installation process, to make temporary files available for the installer.<br><br>
 <a href="https://github.com/q4osteam/q4os-install-media/wiki/images/Q4Winsetup2.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="https://github.com/q4osteam/q4os-install-media/wiki/images/Q4Winsetup2.png" width="417" height="250" class="img" alt="" /></a><br><br>
-On Windows 10, depending on the security policy of your system, a popup window titled "Windows protected your PC" may appear when trying to execute the installer. You only need to click "More info" and confirm the Q4OS setup is safe to continue.<br><br>
-<a href="https://github.com/q4osteam/q4os-install-media/wiki/images/WindowsDefenderSmartScreen1.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="https://github.com/q4osteam/q4os-install-media/wiki/images/WindowsDefenderSmartScreen1.png" width="297" height="277" class="img" alt="" /></a><a href="https://github.com/q4osteam/q4os-install-media/wiki/images/WindowsDefenderSmartScreen2.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="https://github.com/q4osteam/q4os-install-media/wiki/images/WindowsDefenderSmartScreen2.png" width="297" height="277" class="img" alt="" /></a><br><br>
+On Windows 11/10, depending on the security policy of your system, a popup window titled "Windows protected your PC" may appear when trying to execute the installer. You only need to click "More info" and confirm the Q4OS setup is safe to continue.<br><br>
+<a href="https://github.com/q4osteam/q4os-install-media/wiki/images/WindowsDefenderSmartScreen1.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="https://github.com/q4osteam/q4os-install-media/wiki/images/WindowsDefenderSmartScreen1.png" width="297" class="img" alt="" /></a>
+<a href="https://github.com/q4osteam/q4os-install-media/wiki/images/WindowsDefenderSmartScreen2.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="https://github.com/q4osteam/q4os-install-media/wiki/images/WindowsDefenderSmartScreen2.png" width="297" class="img" alt="" /></a>
+<a href="https://github.com/q4osteam/q4os-install-media/wiki/images/UACScreen1.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="https://github.com/q4osteam/q4os-install-media/wiki/images/UACScreen1.png" width="297" class="img" alt="" /></a><br><br>
 In the User Account Control UAC window, click Yes and the Q4OS setup window will now appear. Follow the instructions of the guide style installer. You will be asked to choose the storage space, this means how much storage you would like to assign for Q4OS in your Windows's drive. <!--If you are not sure, it's recommended to choose 32GB. --><br><br>
 <a href="https://github.com/q4osteam/q4os-install-media/wiki/images/Q4Winsetup1.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="https://github.com/q4osteam/q4os-install-media/wiki/images/Q4Winsetup1.png" width="417" height="319" class="img" alt="" /></a><br><br>
 The installer will start downloading, extracting and expanding the target image file. Installation takes some time so please be patient. Once the installation process has finished, close the installer window and restart computer.
@@ -94,6 +96,9 @@ Automatic post install steps take place at the first boot in text mode, they las
 You need to tap the function key straight away and before Windows boots. This will bring up a menu and you can choose to boot either Windows or Q4OS. If you choose Q4OS from this menu, then Q4OS will load and you can begin using and enjoying it.<br><br>
 <a href="https://github.com/q4osteam/q4os-install-media/wiki/images/Q4Winsetup3.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="https://github.com/q4osteam/q4os-install-media/wiki/images/Q4Winsetup3.png" width="565" height="320" class="img" alt="" /></a>
 </p>
+<p>
+If Q4OS doesn't start when selected from the boot menu, you would need to enter BIOS setup and switch the Secure boot mode to <b>Audit mode</b> instead of Deployed mode. Another way to make Q4OS bootable would be to turn the Secure boot off.
+</p>
 
 <br><h2><a name="unint">4.   Uninstallation</a></h2>
 <p>Uninstalling Q4OS is a simple matter of running the downloaded executable again, which will prompt you to uninstall the existing Q4OS operating system. Just launch the "q4os-winsetup.exe" installer again and the uninstall wizard starts.<br><br>
@@ -101,7 +106,7 @@ You need to tap the function key straight away and before Windows boots. This wi
 The uninstaller wipes out Q4OS completely. Uninstallation is quick and simple, and leaves no remnants or abandoned files.</p>
 
 <br><hr>
-<p><font size="2" color="gray">Q4OS for Windows setup, user manual, rev. 05/2020</font></p>
+<p><font size="2" color="gray">Q4OS for Windows setup, user manual, rev. 10/2022</font></p>
 <br><br><br><br>
 
 </body>

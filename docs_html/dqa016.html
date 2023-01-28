@@ -1,0 +1,89 @@
+<html>
+<head>
+ <title>Using Desktop profiler</title>
+ <font face="Arial, Liberation Sans, sans-serif">
+ <style>
+  h1 {
+   font-size: 17pt;
+  }
+  h2 {
+   font-size: 14pt;
+  }
+  h3 {
+   font-size: 12pt;
+  }
+  pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+  }
+  .tab1 {
+   position: relative;
+   left: 5px;
+   line-height: 135%;
+  }
+  .tab2 {
+   position: relative;
+   left: 1em;
+  }
+ </style>
+</head>
+
+<body>
+
+<p><font size="2" color="gray">Using Desktop profiler, user manual, rev. 04/2022</font></p>
+<hr>
+<h1 align=center><a name="top">Using Desktop profiler</a></h1>
+<p align=center>user manual</p>
+<span class="tab1">
+1. <a href="#intro">Introduction</a><br>
+2. <a href="#instl">Applying a Profile</a><br>
+3. <a href="#boome">Custom Profiles</a><br>
+4. <a href="#calmr">Utilize a custom Profile on new Q4OS installation</a><br>
+5. <a href="#dsknv">Additional desktop environments</a><br>
+</span><br>
+
+<br><h2><a name="intro">1.   Introduction</a></h2>
+<p>Desktop profiler is a powerful tool that allows an easy installation and configuration of pre-defined set of applications and packages at once. In short sense a Profile actually means a list of applications to install. So it enables getting a fresh operating system installation configured and ready to work easily and without need of one-by-one applications setup.</p>
+<p>Desktop profiler also provides an easy way to create various custom Profiles, so users can create their own Profiles and apply them on each new Q4OS installation, independently on the target hardware. So you get a possibility to automate and simplify operating system setup. As you have Q4OS up and running for some time already, you can recall any Profile anytime later too.</p>
+
+<br><h2><a name="instl">2.   Applying a Profile</a></h2>
+<p>Just run Desktop profiler from Q4OS Software centre, select a desired Profile from the list and click "Install" button.<br><br>
+<a href="images_doc/dqa016/swprofiler02.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:none;" src="images_doc/dqa016/swprofiler02.png" width="" height="" class="img" alt="" title="Desktop profiler main window" /></a></p>
+<p>&nbsp;- Remove superfluous packages option<br>In order to apply a Profile properly, Desktop profiler would like to uninstall all the packages that don't match the selected Profile. So there is an option available to decide, whether let Desktop profiler to remove such superfluous packages, or keep them all untouched and installed safely. Keep in mind, if you let the checkbox "Remove superfluous packages" marked on, a bunch of packages that don't belong to the selected Profile will be removed. On the contrary, if you uncheck this checkbox, Desktop profiler safely installs the selected Profile, but doesn't uninstall any packages, even if they don't match the Profile selected.</p>
+
+<!--<br><h2><a name="secbo">3.   Secure boot setup</a></h2>
+<p>Once booted for the first time, you might be asked to enroll a MOK, Machine Owner Key, used for signing UEFI boot loaders. Please read the <a href="https://github.com/q4osteam/q4os-install-media/wiki/MOKManager">MOK enrollment instructions</a>. Just proceed the steps from the link above to enroll the 'adminu_wubi.cer' key, see the complete key file path: </p>
+<pre>(ESP)/EFI/debian/wubildr/adminu_wubi.cer</pre>
+<p>Note, the '(ESP)' device, EFI System Partition, varies by hardware. As the key is enrolled, Secure boot will allow you to boot Q4OS in a smooth and safe way.</p>-->
+
+<br><h2><a name="boome">3.   Custom Profiles</a></h2>
+<p>Q4OS supports custom Profiles, just right click on the Profiles list and select an action from the context menu.<br><br>
+<a href="images_doc/dqa016/swprofiler01.png" style="border-bottom: none;"><img style="margin:0px 0px;padding:1px;border:none;" src="images_doc/dqa016/swprofiler01.png" width="600" height="" class="img" alt="" title="Desktop profiler context menu" /></a></p>
+<p>&nbsp;- Profile info<br>Get some more information about the selected Profile.</p>
+<p>&nbsp;- Export Profile<br>Export the selected Profile to a single local file. You can optionally edit and import that local file to the list of Profiles available for installation, see the "Import Profile" paragraphs below.</p>
+<p>&nbsp;- Remove Profile<br>Remove the selected Profile from the Profiles list. Pre-defined system Profiles are fixed and cannot be removed.</p>
+<p>&nbsp;- Get snapshot Profile<br>This option allows saving current system status as a Profile. A Profile is represented by a single configuration file, you can optionaly edit the file, feel free to modify it according to your needs. As you modify the Profile file, you can import it to the list of Profiles available for installation, see the "Import Profile" paragraphs below.</p>
+<p>&nbsp;- Import local Profile<br>A Profile is importable, so it will be ordered as a new one in the Profiles list and could be applied anytime later as described above. You only need to select the Profile file and confirm its insertion.</p>
+<p>&nbsp;- Import shared Profile<br>Import a Profile from an Internet source.</p>
+
+<br><h2><a name="calmr">4.   Utilize a custom Profile on new Q4OS installation</a></h2>
+<p>Note: This capability is not available at the moment, we are readying it for some of upcoming Q4OS releases.</p>
+<p>The objective is to perform a new Q4OS installation to get a fresh operating system with applications and packages defined by a custom Profile. This Profile has been generated earlier on another machine. Let's have a flash disk with the Profile file and Q4OS live media booted up.</p>
+<p>Start Calamares installer to configure the installation options, until we get onto the "Software" page. Click "Load custom profile" button, navigate to flash disk and select the custom Profile file on the flash disk. The Profile will be imported into the Profiles list, just select it and continue clicking the "Next" button to the next Calamares page. That's all, the profile will be applied throughout the installation process.<br><br>
+<a href="images_doc/dqa016/swprofiler03.png" style="border-bottom: none;"><img style="margin:0px 0px;padding:1px;border:none;" src="images_doc/dqa016/swprofiler03.png" width="600" height="" class="img" alt="" title="Desktop profiler context menu" /></a></p>
+<p>If you have no Internet connection, the Profile cannot not be applied, however you will be able to apply the Profile on the installed system later using the Desktop profiler tool.</p>
+
+<br><h2><a name="dsknv">5.   Additional desktop environments</a></h2>
+<p>Desktop profiler offers an option to install an additional Desktop environment aside the default one. Just click on the arrow button top right and select the desired additional desktop environment you want to add. This option is intended specifically for administrators and power users, who exactly know benefits of multiple desktop environments setup and how to deal with them.</p>
+
+<br><hr>
+<p><font size="2" color="gray">Using Desktop profiler, user manual, rev. 04/2022</font></p>
+<br><br><br><br>
+
+</body>
+</html>
