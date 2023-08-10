@@ -1,0 +1,91 @@
+<html>
+<head>
+ <title>Fresh Q4OS installation</title>
+ <font face="Arial, Liberation Sans, sans-serif">
+ <style>
+  h1 {
+   font-size: 17pt;
+  }
+  h2 {
+   font-size: 14pt;
+  }
+  h3 {
+   font-size: 12pt;
+  }
+  pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+  }
+  .tab1 {
+   position: relative;
+   left: 5px;
+   line-height: 135%;
+  }
+  .tab2 {
+   position: relative;
+   left: 1em;
+  }
+ </style>
+</head>
+
+<body>
+
+<p><font size="2" color="gray">Fresh Q4OS installation, user manual, rev. 07/2023</font></p>
+<hr>
+<h1 align=center><a name="top">Fresh Q4OS installation</a></h1>
+<p align=center>user manual</p>
+<span class="tab1">
+1. <a href="#intro">Introduction</a><br>
+2. <a href="#creat">Create bootable USB/CD/DVD</a><br>
+3. <a href="#qinst">Install process</a><br>
+4. <a href="#posti">After install steps</a><br>
+</span><br>
+
+<br><h2><a name="intro">1.   Introduction</a></h2>
+<!-- <p>This paper covers how to set up a fresh instance of Q4OS operating system. Q4OS is recommended to be used on production machines, as it has been built on top of the rock stable, secured and reliable Debian system tested by lot of people around the World. There is a huge stable software base sitting in the default repositories, you are free to use it and adjust the system to suit your needs.</p> -->
+<p>In order to make a fresh Q4OS installation, you need to acquire ISO image file, create bootable USB or DVD/CD media and complete the installation procedure. At first, download the desired ISO image from the downloads section of Q4OS website and create bootable media, see the next chapters. The alternative way is to order prepared media in <a href="https://www.q4os.org/shop/">Q4OS e-shop</a>.</p>
+
+<br><h2><a name="creat">2.   Create bootable USB/CD/DVD</a></h2>
+<h3>2.1. Windows users</h3>
+<p>We recommend using a dedicated tool <b>Q4OS imager for Windows</b>, please see <a href="https://www.q4os.org/forum/viewtopic.php?id=4444">An easy way to create Q4OS Live bootable USB</a> forum topic for Imager description and download.</p>
+<a href="images_doc/dqa018/winimagersetup.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="images_doc/dqa018/winimagersetup.png" width="297" class="img" alt="" /></a>
+<p>We haven't signed Imager installer yet, so you will need to satisfy Windows it's safe. On Windows 11/10, depending on the security policy of your system, a popup window titled "Windows protected your PC" may appear when trying to execute the installer. You only need to click "More info" and confirm the Imager setup is safe to continue.<br><br>
+<a href="images_doc/dqa018/WindowsDefenderSmartScreen1.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="images_doc/dqa018/WindowsDefenderSmartScreen1.png" width="280" class="img" alt="" /></a>
+<a href="images_doc/dqa018/WindowsDefenderSmartScreen2.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="images_doc/dqa018/WindowsDefenderSmartScreen2.png" width="280" class="img" alt="" /></a>
+<!-- <a href="https://github.com/q4osteam/q4os-install-media/wiki/images/UACScreen1.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="https://github.com/q4osteam/q4os-install-media/wiki/images/UACScreen1.png" width="297" class="img" alt="" /></a><br><br> -->
+<p>In the User Account Control UAC window, click Yes and the Imager setup window will now appear. Follow the instructions of the guide style installer.</p>
+<p>An alternative way is to use <b>Rufus</b> application to create live USB, see how to create <a href="https://dai-trying.com/tutorials/how-to-create-a-live-cd-rom-using-windows/">live cd media</a> or <a href="https://dai-trying.com/tutorials/how-to-create-a-live-usb-using-windows/">live usb media</a>.</p>
+
+<h3>2.2. Linux users</h3>
+<p>As Q4OS is Debian based, please follow <a href="https://wiki.debian.org/DebianInstall#Creating_a_Bootable_Debian_USB_Flashdrive">Debian instructions</a>.</p>
+<h3>2.3. Q4OS users</h3>
+<p>Imager for Q4OS is recommended, please see <a href="https://www.q4os.org/forum/viewtopic.php?id=4444">An easy way to create Q4OS Live bootable USB</a> forum topic for Imager description and download.</p>
+<a href="images_doc/dqa018/imager1.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="images_doc/dqa018/imager1.png" width="297" class="img" alt="" /></a>
+<a href="images_doc/dqa018/imager2.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:thin solid black;" src="images_doc/dqa018/imager2.png" width="297" class="img" alt="" /></a>
+<br><br>
+
+<br><h2><a name="qinst">3.   Install process</a></h2>
+<h3>3.1. Live media</h3>
+<!-- <p>A description is not completed yet, it will be available soon.</p> -->
+<p>There is an excellent <a href="https://dai-trying.com/tutorials/linux/q4os-scorpion-full-installation-guide/">external website</a> available, that describes Q4OS installation from the live media in detail. See how to create <a href="https://dai-trying.com/tutorials/how-to-create-a-live-cd-rom-using-windows/">live cd media</a> or <a href="https://dai-trying.com/tutorials/how-to-create-a-live-usb-using-windows/">live usb media</a>, preparing to install</a> and finally <a href="https://dai-trying.com/tutorials/install-q4os-from-live-desktop/">Q4OS installation</a>.</p>
+<h3>3.2. Installation CD</h3>
+<p>There are two basic options after booting from installation media, classic and fast installation. Classic install will ask you to setup partitioning, so you have option to keep current data, resize existing partitions, or repartitioning harddrive to your wishes. You will be able to free some harddrive space during installation and have Q4OS installed alongside other operating systems. The list of systems will be autodetected and offered on every boot.</p>
+<p>Fast install will recreate all partitioning on the disk drive automatically and format it with no question. It will erase all the hard drive data and install Q4OS onto the primary device. A predefined user account will be created, and the system will ask the user to set up a password immediately after the first login.</p>
+<p>Note, installation CD doesn't require any network connection, it will install the basic Q4OS system on computers even with no network card.</p>
+
+<br><h2><a name="posti">4.   After install steps</a></h2>
+<p>Please note, the setup process takes a while. Once completed, reboot and login into the fresh and clean Q4OS Desktop.</p>
+<p>The first postinstall step a user should do is to run 'Desktop profiler' tool and apply the most applicable desktop profile according to his intention. There are a few basic profiles available at this time, however additional different profiles will continue to be created, see <a href="dqa016.html">desktop profiler</a> user manual. After applying a profile, the user is free to install required applications, the best and recommended way is to use the 'Software Centre' from the system menu.</p>
+<p>Now, it's the right time to install desired applications. The best and recommended way is to use Q4OS Desktop profiler and Software center, please read Q4OS <a href="https://www.q4os.org/documents.html">documentation</a>. Enjoy your new desktop and don't forget to involve yourself in the Q4OS <a href="https://www.q4os.org/forum/">community</a>.</p>
+
+<br><hr>
+<p><font size="2" color="gray">Fresh Q4OS installation, user manual, rev. 07/2023</font></p>
+<br><br><br><br>
+
+</body>
+</html>
