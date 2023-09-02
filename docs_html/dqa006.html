@@ -55,7 +55,7 @@
 <!-- <BODY LANG="en-US" DIR="LTR"> -->
 
 <body>
-<p><font size="2" color="gray">Available Q4OS applications, rev. 06/2021</font></p>
+<p><font size="2" color="gray">Available Q4OS applications, rev. 09/2023</font></p>
 <hr>
 <P align=center><FONT SIZE=5><B>Available Q4OS applications</B></FONT></P>
 <p align=center>user manual</p>
@@ -69,7 +69,7 @@
 <BR><HR>
 <P><FONT SIZE=4><B>3. How to install software from repositories</B></FONT></P>
 <P>It is possible to install thousands of verified applications, tools and libraries from Debian and Q4OS repositories, see the next chapters.</P>
-<P><FONT SIZE=3><B>3.1 Software managers</B></FONT></P>
+<P><FONT SIZE=3><B>3.1 Package managers</B></FONT></P>
 <P>Using Synaptic, or Discover for Plasma desktop, package manager, you can search, install, uninstall and manage all software from repositories in well arranged graphical interface. You can install both Synaptic and Discover package managers from the Q4OS Software Centre.</P>
 <P><FONT SIZE=3><B>3.2 Commandline way</B></FONT></P>
 <P>Software from repositories could be installed with convenient graphical package managers, see the previous chapter, or manually using terminal commands, according to next instructions. You have to be member of administrative group 'sudo' for these operations, open terminal and type commands:</P>
@@ -80,8 +80,8 @@ sudo apt install desired_application
 <P><FONT SIZE=3><B>3.3 Recent applications versions</B></FONT></P>
 <P>There is a <a href="https://backports.debian.org/">Debian Backports</a> repository available with recent versions of many useful applications prepared. First you need to add backports repository to system:
 <pre>$ sudo qrepoadd --gui</pre>
-and select "backports-buster" from the list to add. Backports stay unused and passive, until you explicitly ask to install specific software from. It is straightforward and clean action, with no system integrity impact. So, if you would like to use recent version of some application instead of the rock stable Debian version, you have to tell Q4OS to install desired software from backports. See an example for Libre Office suite:
-<pre>$ sudo apt -t buster-backports install libreoffice</pre></P>
+and select "debian-backports" from the list to add. Backports stay unused and passive, until you explicitly ask to install specific software from. It is straightforward and clean action, with no system integrity impact. So, if you would like to use recent version of some application instead of the rock stable Debian version, you have to tell Q4OS to install desired software from backports. See an example for Libre Office suite:
+<pre>$ sudo apt -t bookworm-backports install libreoffice</pre></P>
 <P><FONT SIZE=3><B>3.4 Adding external repositories</B></FONT></P>
 <P>Please follow <a href="https://www.q4os.org/dqa007.html#extrepo">External software repositories</a> link.</P>
 <BR>
@@ -102,7 +102,7 @@ package from Q4OS Software Centre.</P>
 <P>Native, optimized Q4OS software is the absolute primary aim of the Q4OS system. It will be available, if more developers start to develop applications for Q4OS to fulfil considerable Q4OS's potential. Such applications should be based on QT libraries as a native Q4OS API, thus can be really fast with very low hardware requirements, as well as integrated into the graphical user interface.</P>
 
 <br><hr>
-<p><font size="2" color="gray">Q4OS for Windows setup, user manual, rev. 06/2021</font></p>
+<p><font size="2" color="gray">Q4OS for Windows setup, user manual, rev. 09/2023</font></p>
 <br><br><br><br><br><br><br>
 
 </BODY>
