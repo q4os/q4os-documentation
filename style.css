@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "source-serif-pro";
+  src: url("https://glyph.medium.com/font/8e059b2/0-3j_4g_53_6bu_6c4_6c8_6c9_6cc_6cd_6ci_6cm/source-serif-pro-400-normal.woff")
+    format("woff");
+  font-style: normal;
+  font-weight: 400;
+  unicode-range: U+0-7F, U+A0, U+B7, U+200A, U+2014, U+2018, U+2019, U+201C,
+    U+201D, U+2022, U+2026;
+}
+
+@font-face {
+  font-family: "sohne";
+  src: url("https://glyph.medium.com/font/b492c44/0-3j_4g_53_6bu_6c4_6c8_6c9_6cc_6cd_6ci_6cm/sohne-400-normal.woff")
+    format("woff");
+  font-style: normal;
+  font-weight: 400;
+  unicode-range: U+0-7F, U+A0, U+B7, U+200A, U+2014, U+2018, U+2019, U+201C,
+    U+201D, U+2022, U+2026;
+}
+
+:root {
+  --background-color: #1f1f1f;
+  --font-color: rgb(191, 191, 191);
+  --font-lighter-color: #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1f1f1f;
+    --font-color: rgb(191, 191, 191);
+    --font-lighter-color: #ccc;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #f6f6f6;
+    --font-color: #222;
+    --font-lighter-color: #444;
+  }
+}
+
+*:not(a) {
+  color: var(--font-color);
+  background-color: var(--background-color);
+}
+
+p {
+  font-family: "source-serif-pro";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b {
+  font-family: "sohne";
+}
