@@ -31,31 +31,31 @@
    left: 1em;
   }
  </style>
- <link rel="stylesheet" href="../style.css">
+<!--  <link rel="stylesheet" href="../style.css"> -->
 </head>
 
 <body>
 
-<p><font size="2" color="gray">Easy way to create custom application installer, developer manual, rev. 09/2021</font></p><hr>
+<p><font size="2" color="gray">Easy way to create custom application installer, developer manual, rev. 10/2023</font></p><hr>
 
 <h1 align=center><a name="top">Easy way to create custom application installer</a></h1>
 <p align=center>developer manual</p>
 <span class="tab1">
 1. <a href="#intro">Introduction</a><br>
-2. <a href="#crspa">Create a simple application</a><br>
+2. <a href="#crspa">Create a sample application</a><br>
 3. <a href="#buiis">Build installer</a><br>
 </span><br>
 
 <br><h2><a name="intro">1.   Introduction</a></h2>
-<p>This document describes, how to create Q4OS self-extracting convenient installer for your own applications, files and directory structure. This procedure will create both '*.deb' file for manual installation with 'dpkg' command, and '*.esh' fully automated, convenient installer. The installer will flawlessly install and deliver an application or set of files to Q4OS users.</p>
+<p>This document describes, how to create Q4OS self-extracting convenient installer for your own applications, files and directory structure. This procedure will create both '*.deb' file for manual installation with 'dpkg' command, and '*.qsi' fully automated, convenient installer. The installer will flawlessly install and deliver an application or set of files to Q4OS users.</p>
 <p>Before we can proceed to create the first simple application, you need to install Q4OS Development Pack from repositories:</p>
 <pre>$ sudo apt install q4os-devpack-base</pre>
 
-<br><h2><a name="crspa">2.   Create a simple application</a></h2>
+<br><h2><a name="crspa">2.   Create a sample application</a></h2>
 <p>We will create some custom files and directory structure first, it will represent an application. Run commands in terminal to create working directory and application files, you can use cut and 'shift-insert' paste into the terminal:</p>
 <pre>$ mkdir -p $HOME/my-appdir
 $ cd $HOME/my-appdir
-$ echo 'kdialog --msgbox "Hello World"' > my-app.sh
+$ echo -e '#!/bin/sh\nkdialog --msgbox "Hello World"' > my-app.sh
 $ echo -e 'install:\n\tcp my-app.sh /usr/bin/application.exu' > Makefile
 $ chmod a+x my-app.sh</pre>
 <p>Newly created directory structure represents our application. Let's go to build the installer now.</p>
@@ -67,13 +67,14 @@ $ chmod a+x my-app.sh</pre>
 <pre>#***q4os*setup*config*header*do*not*delete*it***#
 CHKINSTALL_COMMAND="cp my-app.sh /usr/bin/application.exu"</pre>-->
 <p>Finally generate installer:</p>
-<pre>$ export SHOWDEBDIALOG=1
-$ cd $HOME/my-appdir
-$ dash /program_files/q4os-devpack/bin/create_q4app_setup.sh installer.cfg</pre>
-<p>Comfortable Q4OS installer will be generated automatically, answer 'Yes' to 'Open installer location ?' question, when process finishes. You can now proceed testing installation of your application double-clicking 'setup_*.esh' file. Upload and publish this file somewhere on the Internet, Q4OS users will be happy for easy setup of your application.</p>
-
+<pre>$ cd $HOME/my-appdir
+$ SHOWDEBDIALOG=1 dash /program_files/q4os-devpack/bin/create_q4app_setup.sh installer.cfg</pre>
+<p>Comfortable Q4OS installer will be generated automatically, answer 'Yes' to 'Open installer location ?' question, when process finishes. You can now proceed testing installation of your application double-clicking 'setup_*.qsi' file.</p>
+<p>Upload and publish generated .qsi installer somewhere on the Internet, Q4OS users will be happy for easy setup of your application.</p>
+<p>To remove the installed application, run:</p>
+<pre>$ sudo apt remove application</pre>
 <br><hr>
-<p><font size="2" color="gray">Easy way to create custom application installer, developer manual, rev. 09/2021</font></p>
+<p><font size="2" color="gray">Easy way to create custom application installer, developer manual, rev. 10/2023</font></p>
 <br><br><br><br>
 
 </body>
