@@ -44,6 +44,7 @@
 1. <a href="#intro">Introduction</a><br>
 2. <a href="#crspa">Create a sample application</a><br>
 3. <a href="#buiis">Build installer</a><br>
+4. <a href="#xtris">Extract installer</a><br>
 </span><br>
 
 <br><h2><a name="intro">1.   Introduction</a></h2>
@@ -73,9 +74,13 @@ $ SHOWDEBDIALOG=1 dash /program_files/q4os-devpack/bin/create_q4app_setup.sh ins
 <p>Upload and publish generated .qsi installer somewhere on the Internet, Q4OS users will be happy for easy setup of your application.</p>
 <p>To remove the installed application, run:</p>
 <pre>$ sudo apt remove application</pre>
+
+<br><h2><a name="xtris">4.   Extract installers</a></h2>
+<p>Extracting and looking into a compiled installer is easy. Copy the installer file into some working directory and run to extract its content in this directory:</p>
+<pre>$ sh /usr/bin/xqtrsetups</pre>
+
 <br><hr>
 <p><font size="2" color="gray">Easy way to create custom application installer, developer manual, rev. 10/2023</font></p>
 <br><br><br><br>
-
 </body>
 </html>
