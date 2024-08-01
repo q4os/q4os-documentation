@@ -1,13 +1,45 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>Q4OS Application install howto, general recommendations</TITLE>
-	<FONT FACE="Arial, Liberation Sans, sans-serif">
-<!-- 	<link rel="stylesheet" href="../style.css"> -->
-</HEAD>
-<BODY LANG="en-US" DIR="LTR">
-<P><FONT SIZE=5><B>Q4OS Application install howto, general recommendations</B></FONT></P>
+<html>
+<head>
+ <title>Build an application for Trinity desktop, general recommendations</title>
+ <font face="Arial, Liberation Sans, sans-serif">
+ <style>
+  h1 {
+   font-size: 17pt;
+  }
+  h2 {
+   font-size: 14pt;
+  }
+  h3 {
+   font-size: 12pt;
+  }
+  pre {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
+   border: 1px dashed gray;
+   font-size: 11pt;
+   font-family: "monospace";
+  }
+  .tab1 {
+   position: relative;
+   left: 5px;
+   line-height: 135%;
+  }
+  .tab2 {
+   position: relative;
+   left: 1em;
+  }
+ </style>
+<!--  <link rel="stylesheet" href="../style.css"> -->
+</head>
+
+<body>
+
+<p><font size="2" color="gray">Build an application for Trinity desktop, general recommendations, developer manual, rev. 08/2024</font></p>
+<hr>
+<h1 align=center><a name="top">Build an application for Trinity desktop, general recommendations</a></h1>
+<p align=center>developer manual</p>
 <P><BR><BR></P>
 <P><FONT SIZE=4 STYLE="font-size: 16pt"><B>Contents</B></FONT></P>
 <P STYLE="margin-left: 0.25in"><A HREF="#s-link01">1. Introduction</A></P>
@@ -38,22 +70,22 @@ applications</A><BR><BR><BR>
 <HR>
 <P><A NAME="s-link01"></A><FONT SIZE=4><B>1. Introduction</B></FONT></P>
 <P>This developer manual generally describes important rules for
-installing Unix-like application to Q4OS operating system, alongside
-clarifies essential install steps and also help you to understand
-Q4OS basics and design. 
+building a Unix-like application for Q4OS Trinity operating system, alongside
+clarifies essential build steps and also help you to understand
+Q4OS basics and design.
 </P>
 <P>Q4OS is desktop operating system designed to offer compact and
 clean user interface, simple accessories and to serve stable
 foundation for running complex third-party applications. Since Q4OS
 is a Debian/Linux based OS, it uses "Apt" package
 management system and related tools to maintain system health and
-clean. 
+clean.
 </P>
-<P>We advise you to use QT libraries API to program your
+<P>We advise you to use QT libraries API to compile your
 applications. If Application requires some library or other software,
 which is not part of base Q4OS installation, the easiest way is pick
 it and install as a system shared from official Q4OS repository.
-Another way is to add library directly into your setup package,
+Another way is to add library as a dependency into your setup package,
 decreasing dependency on third-party software. It is possible to run
 Linux executables without restriction or modification.<!-- If you are
 looking for specific example, please read document <A HREF="dqa008.html">Step-by-step
@@ -288,7 +320,7 @@ applications</B></FONT></P>
 executable can be run without modification, so porting Unix
 applications is fairly easy. The easiest, but not clean way would be
 simply run "make install", however you have to take care
-about Q4OS installation rules above. 
+about Q4OS installation rules above.
 </P>
 <P>At minimal, you should modify Makefile to add menu and desktop
 entries for Q4OS and take care of registration to the system.
@@ -310,5 +342,10 @@ At the moment we are working at Wine optimization and close
 integration into the Q4OS system.</P>
 <P><BR><BR>
 </P>
-</BODY>
-</HTML>
+
+<br><hr>
+<p><font size="2" color="gray">Build an application for Trinity desktop, general recommendations, developer manual, rev. 08/2024</font></p>
+<br><br><br><br>
+
+</body>
+</html>
