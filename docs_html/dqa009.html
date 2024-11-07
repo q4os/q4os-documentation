@@ -42,9 +42,14 @@
 <p align=center>developer manual</p>
 <span class="tab1">
 1. <a href="#intro">Introduction</a><br>
-2. <a href="#crspa">Sample application</a><br>
-3. <a href="#buiis">Build installer</a><br>
-4. <a href="#xtris">Extract installer</a><br>
+2. <a href="#crspa">Example applications</a><br>
+<span class="tab2">
+2a. <a href="#2aaper">Apt installer</a><br>
+2b. <a href="#2bfker">Flatpak installer</a><br>
+2c. <a href="#2cdenr">Deb integration</a><br>
+2d. <a href="#2danrr">Advanced installers</a><br>
+</span>
+3. <a href="#xtris">Extracting installer</a><br>
 </span><br>
 
 <br><h2><a name="intro">1.   Introduction</a></h2>
@@ -52,13 +57,22 @@
 <p>Before we can proceed creating an application, you need to install Q4OS Development Pack from repositories:</p>
 <pre>$ sudo apt install q4os-devpack-base</pre>
 
-<br><h2><a name="crspa">2.   Sample application</a></h2>
-<p>We will get a simple sample application from development pack template, it will represent an application. Run commands in terminal to copy the template, you can use cut and paste into the terminal:</p>
-<pre>$ cp -r /opt/program_files/q4os-devpack/examples/00_skelet_qinstaller_sample $HOME/my_sample_app</pre>
-<p>The directory structure in "$HOME/my_sample_app/" represents our application. Let's go to build the installer now.</p>
+<br><h2><a name="crspa">2.   Example applications</a></h2>
+<h3><a name="2aaper">2a.   Apt installer</a></h3>
+<p>In this example we create the most simple installer for single application from Apt repositories. Get installer configuration from template:</p>
+<pre>$ cp -r /opt/program_files/q4os-devpack/examples/00_qinstaller/basic $HOME/example</pre>
+Build the installer:
+<pre>$ cd $HOME/example
+$ build-qinstaller qinstaller1</pre>
+<p>Find the created installer in $HOME/example1/setup</p>
 
-<br><h2><a name="buiis">3.   Build installer</a></h2>
-<p>Finally generate installer:</p>
+<h3><a name="2bfker">2b.   Flatpak installer</a></h3>
+<p>Go the same as for example 2a above, only replace "qinstaller1" template with "qinstaller2"</p>
+
+<h3><a name="2cdenr">2c.   Deb integration</a></h3>
+<p>We will create installer with a .deb file integrated. Get a simple sample application from development pack template, it will represent an application. Run commands in terminal to copy the template, you can use cut and paste into the terminal:</p>
+<pre>$ cp -r /opt/program_files/q4os-devpack/examples/00_qinstaller/sample_app $HOME/my_sample_app</pre>
+<p>The directory structure in "$HOME/my_sample_app/" represents our application. Let's go to build the installer now:</p>
 <pre>$ cd $HOME/my_sample_app
 $ dpkg-buildpackage -b -uc -us -tc</pre>
 <p>Comfortable ".qsi" installer will be generated in your $HOME directory along with the regular Debian ".deb" package. You can now proceed testing installation of your application double-clicking "setup_sample-app_*.qsi" file.</p>
@@ -67,13 +81,15 @@ $ dpkg-buildpackage -b -uc -us -tc</pre>
 <p>Run the application from terminal:</p>
 <pre>$ sample-app.sh</pre>
 <a href="images_doc/dqa009/dqa009_03.png" style="border-bottom: none;"><img style="margin:0px 10px;padding:1px;border:none;" src="images_doc/dqa009/dqa009_03.png" width="176" height="" class="img" alt="" title="Run the sample application" /></a>
-<p>Upload and publish generated .qsi installer somewhere on the Internet, users will be happy for easy setup of your application.</p>
 <p>To remove the installed application, run:</p>
 <pre>$ sudo apt remove sample-app</pre>
 
-<br><h2><a name="xtris">4.   Extract installers</a></h2>
+<h3><a name="2danrr">2d.   Advanced installers</a></h3>
+<p>Choose any of our official open source installers from <a href="https://github.com/q4os-installers">Q4OS Github account</a> as a template. Clone the installer and customize all the desired options.</p>
+
+<br><h2><a name="xtris">3.   Extracting installers</a></h2>
 <p>Extracting and looking into a compiled ".qsi" installer is easy. Copy the installer file into some working directory and run to extract its content in this directory:</p>
-<pre>$ sh /usr/bin/xqtrsetups</pre>
+<pre>$ xqtrsetup</pre>
 
 <br><hr>
 <p><font size="2" color="gray">Easy way to create custom application installer, developer manual, rev. 09/2024</font></p>
