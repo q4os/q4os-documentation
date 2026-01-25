@@ -94,10 +94,10 @@
 <p>Sure, the preferred way is to proceed installation from 'Live' CD, as it gives you bootloader install option. If you let installer to install Grub bootloader, it will autodetect available operating systems including Windows and offer them all on every boot. If you want to keep Windows bootloader, don't forget to uncheck the related checkbox during installation.</p>
 <p>We strongly recommend to backup all your data before, please read <a href="https://www.q4os.org/dqa018.html">installation instructions</a>.</p>
 <h3><a name="install.3">2.3. I have no sound after installation, what should I do ?</a></h3>
-<p>We recommend you to install the PulseAudio sound server first:
-<pre>$ sudo apt install pulseaudio pavucontrol-qt</pre>
-<p>Reboot your computer. Right-click to 'mixer' icon in system tray -> 'Select Master Channel...' -> set 'Current Mixer' to 'PulseAudio' in the top right listbox -> click 'Ok' to close the dialog. Run 'Volume Control' application from the Start menu and configure output mixer settings on the 'Output Devices' tab, check if output channels are not muted. The audio system should work now. If not so, continue following the steps below.</p>
-<p>Left-click to 'mixer' icon in the system tray, and click to 'Mixer' button to check and update audio mixer levels. <!--Focus primarily on 'Master', 'PCM', 'Front' and 'LFE' parameters. -->Make sure there is the 'PulseAudio' sound card selected in the top right corner of the 'kmix' mixer window. Then run command in terminal and check debug output:</p>
+<p>We recommend you to install the Pipewire sound server first:
+<pre>$ sudo apt install pipewire pavucontrol-qt</pre>
+<p>Reboot your computer. Right-click to 'mixer' icon in system tray -> 'Select Master Channel...' -> set 'Current Mixer' to 'PipeWire' in the top right listbox -> click 'Ok' to close the dialog. Run 'Volume Control' application from the Start menu and configure output mixer settings on the 'Output Devices' tab, check if output channels are not muted. The audio system should work now. If not so, continue following the steps below.</p>
+<p>Left-click to 'mixer' icon in the system tray, and click to 'Mixer' button to check and update audio mixer levels. <!--Focus primarily on 'Master', 'PCM', 'Front' and 'LFE' parameters. -->Make sure there is the 'PipeWire' sound card selected in the top right corner of the 'kmix' mixer window. Then run command in terminal and check debug output:</p>
 <pre>$ artsplay /opt/trinity/share/sounds/KDE_Startup.wav</pre>
 <p>If there is still no sound, terminate temporarily Trinity sound server and try to play audio with independent alsa player:</p>
 <pre>$ artsshell terminate
