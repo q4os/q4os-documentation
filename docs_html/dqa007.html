@@ -36,7 +36,7 @@
 
 <body>
 
-<p><font size="2" color="gray">Q4OS setup and using, Trinity desktop user manual, rev. 10/2025</font></p>
+<p><font size="2" color="gray">Q4OS setup and using, Trinity desktop user manual, rev. 04/2026</font></p>
 <hr>
 <h1 align=center><a name="top">Q4OS setup and using</a></h1>
 <p align=center>Trinity desktop user manual</p>
@@ -188,20 +188,21 @@ $ sudo apt dist-upgrade</pre>
 <p>Update Manager notify users about available security and software updates and let them to upgrade system on request. You can easily install Update Manager from the Q4OS Software Centre.</p>
 
 <br><h2><a name="extrepo">14.   External software repositories</a></h2>
-<p>This chapter is intended specifically for power users familiar to Debian package management system. The default Q4OS configuration offers the basic and dependable set of software repositories, if you want to add more external repositories, you are free to follow standard Debian procedures. In addition, Q4OS offers one more easy way to add a set of predefined repositories, see example below.</p>
-<p>Suppose we want to install the Opera web browser from external repository.<p>
-<p>List available predefined repositories:<p>
-<pre>$ sudo qrepoadd --gui</pre>
-<p>Select 'opera' repository from drop-down combobox and click 'Ok' button to add it to the system. Alternatively you can add the repository directly, using terminal command:<p>
-<pre>$ sudo qrepoadd opera</pre>
+<p>This chapter is intended for advanced users who are familiar with the Debian package management system. The default Q4OS configuration provides a basic and reliable set of software repositories. If you wish to add additional external repositories, you may follow standard Debian procedures. In addition, Q4OS offers a simplified method for adding a predefined set of repositories, as shown in the example below. Suppose we want to install the Opera web browser from external repository.<p>
+<p>Install Extrepo tool:<p>
+<pre>$ sudo apt install extrepo</pre>
+<p>Search in external repositories:<p>
+<pre>$ extrepo search opera</pre>
+<p>Add Opera repository to the system:<p>
+<pre>$ sudo extrepo enable opera</pre>
 <p>Install packages:<p>
 <pre>$ sudo apt update
 $ sudo apt install opera-stable</pre>
 <p>If you decide to uninstall Opera web browser and disable repository again, run in terminal:<p>
 <pre>$ sudo apt autoremove opera-stable
-$ sudo qreporm opera
+$ sudo extrepo disable opera
 $ sudo apt update</pre>
-<p>Keep in mind, adding external third-party repositories is low level system action, and it could deeply influence package database integrity and dependencies. Fortunately Apt package management system contains strong tools for administrators to fix broken dependencies, so you are always able to revert into initial clean state.</p>
+<p>Keep in mind that adding external third-party repositories is a low-level system operation that can significantly affect package database integrity and dependencies. Fortunately, the Apt package management system provides robust tools for resolving broken dependencies, allowing you to restore the system to a clean and stable state if needed.</p>
 
 <br><h2><a name="dskenv">15.   Alternative desktop environments</a></h2>
 <p>Other desktop environments integration into the Q4OS system is supported, they could be installed alongside the default Trinity desktop, for example KDE Plasma, LXQt, XFCE and others. You can add a desktop environment using the Desktop Profiler tool, run it in terminal:
@@ -287,7 +288,7 @@ $ chqloc --setlocale de_DE.utf8</pre>
 <pre>$ sudo passwd</pre>
 
 <br><hr>
-<p><font size="2" color="gray">Q4OS setup and using, Trinity desktop user manual, rev. 10/2025</font></p>
+<p><font size="2" color="gray">Q4OS setup and using, Trinity desktop user manual, rev. 04/2026</font></p>
 <br><br><br><br>
 
 </body>
