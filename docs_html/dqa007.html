@@ -137,7 +137,7 @@ $ sudo hp-setup</pre>
 <p>Next add and configure printers, open Start menu -> Applications -> Settings -> Print system. You can find a valuable additional information at the <a href="https://wiki.debian.org/SystemPrinting">Debian wiki</a>.</p>
 <h3><a name="printer.3">5.3. Scanners</a></h3>
 <p>We recommend to use 'Kooka' application for scanning. Install required software and add any users who need access to the 'scanner' group:</p>
-<pre>$ sudo apt install libsane sane sane-utils xsane kooka-trinity
+<pre>$ sudo apt install libsane1 sane sane-utils xsane kooka-trinity
 $ sudo adduser your_user_name scanner</pre>
 <p>A user will need to log out and log back in to take effect of the new group. Check the scanner is now recognized:</p>
 <pre>$ scanimage -L
